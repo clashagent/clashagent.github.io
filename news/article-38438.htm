@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-38438.htm" />
+    <meta charset="utf-8">
+    <title>github ations 入门使用</title>
+        <meta name="description" content="在使用之前，我们了解一下什么是 Github Actions。  在 GitHub Actions 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                                <a href="#" class="nav-item nav-link">关于</a>
+                        <a href="#" class="nav-item nav-link">联系</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">github ations 入门使用</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<p>在使用之前，我们了解一下什么是 Github Actions。</p> <blockquote> <p>在 GitHub Actions 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。</p> </blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.github.com/cn/actions/quickstart"  target="_blank" rel="nofollow">点击开始入门</a>如果打不开的小伙伴按照一下步骤一起来开始使用简单的。</p> <ol> <li>如果 .github/workflows 目录不存在，请在 GitHub 的仓库项目中创建此目录。</li> <li>在 .github/workflow 目录中，创建一个名为 github-actions-demo.yml 的文件。(文件命名随便，后缀必须为<code>.yml</code>)</li> <li>将以下 YAML 内容复制到 github-actions-demo.yml 文件中：</li> </ol> <pre><code class="language-yml">name: GitHub Actions Demo on: [push] jobs:   Explore-GitHub-Actions:     runs-on: ubuntu-latest     steps:       - run: echo "???? The job was automatically triggered by a ${{ github.event_name }} event."       - run: echo "???? This job is now running on a ${{ runner.os }} server hosted by GitHub!"       - run: echo "???? The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."       - name: Check out repository code         uses: actions/checkout@v3       - run: echo "???? The ${{ github.repository }} repository has been cloned to the runner."       - run: echo "????️ The workflow is now ready to test your code on the runner."       - name: List files in the repository         run: |           ls ${{ github.workspace }}       - run: echo "???? This job's status is ${{ job.status }}."</code></pre> <ol start="4"> <li> <p>提交这个文件，并且推送到远程仓库去。</p> </li> <li> <p>你将会在远程仓库的<code>Actions</code>中看到运行的日志。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/bda898dbf6398830f8e4bc97defec231.jpg" alt="github ations 入门使用"></p> </li> <li> <p>现在你已经掌握了一个简单的<code>自动化工作流程</code>。</p> </li> </ol> <h2 id="reactvue-项目提交代码自动更新-github-pages">react,vue 项目提交代码自动更新 GitHub Pages</h2> <p>若你是一个<code>前端开发</code>或者喜欢自己开发网站，你肯定想拥有一个属于自己的网站。把自己的项目或者博客，放在网络上，任何人都可以看见。接下来，是使用<code>前端框架</code> 项目提交代码自动更新<code>pages</code>。</p> <h3 id="在使用之前">在使用之前</h3> <p>请检查一下信息:</p> <ol> <li>确保有一个新的分支专门用来存放<code>Pages</code>项目的代码。</li> </ol> <pre><code class="language-bash">git checkout -b gh-pages #创建 gh-pages分支 并切换到 gh-pages git push origin gh-pages:gh-pages #把本地分支推送到 远程仓库</code></pre> <ol start="2"> <li>Github 仓库是否开启<code>GitHub Pages</code></li> </ol> <p>在浏览器打开你的 Github 仓库, 找到 Settings 选项 点击进入，在左侧寻找到 Pages 栏目，点击之后，出现一个 Source 标题，下面有个 选择框，当前是 None，表示你还未开启<code>Pages</code>功能。点击 None 选择框 选择你 创建的分支，这里选择 刚刚创建的<code>gh-pages</code>，选择完之后 还有个文件夹选择，意思是这个分支的文件夹作为入口来显示你的项目，我们就按照默认的<code>root/</code>目录就行了，点击 save 即可。点击完成之后会有个提示：</p> <blockquote> <p>Your site is ready to be published at<code>https://{username}.github.io/{store_name}/</code></p> </blockquote> <p>说明你的<code>pages</code>开启成功，不过点击进去是 404 ，因为你<code>gh-pages</code>分支还没资源所以找不到访问信息。</p> <h3 id="开始部署前端框架react项目">开始部署前端框架(react)项目</h3> <p>在完成了上面的步骤之后，开始编写<code>Actions</code>。你可以阅读以下文档：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.github.com/cn/actions/using-workflows/triggering-a-workflow"  target="_blank" rel="nofollow">触发工作流程<br /></a></p> <ol> <li>在当前项目代码运行所在的分支，创建<code>.github</code>文件夹，再在<code>.github</code>文件夹下创建<code>workflows</code>文件夹，在此目录下新建<code>.yml</code>格式文件。</li> </ol> <pre><code class="language-bash">├─ .github        #文件夹     └─ workflows  #文件夹         └─ autoUpdatePages.yml # actions文件 后缀.yml</code></pre> <ol start="2"> <li>编写<code>autoUpdatePages.yml</code>文件<br /> 代码如下：</li> </ol> <pre><code class="language-yml">name: update pages #名称 随意  on: # 触发条件   push: # 当推送的时候     branches: [master] # 分支 可以有多个 且为 master 触发     paths: ["src/**"] # 且 推送的文件在此目录下 触发  jobs: #要运行的任务   build: #任务名 随意     runs-on: ubuntu-latest # 运行的机器环境 可以是 linux 等等 具体请查阅文档     # 用到的 node 版本     strategy:       matrix:         node-version: [12]     # 运行步骤     steps:       # 一些检查 输出       - uses: actions/checkout@v3        - name: Use Node.js ${{ matrix.node-version }}         uses: actions/setup-node@v3         with:           node-version: ${{ matrix.node-version }}       # 开始 打包       - name: Build       # run 下面 是需要运行的命令行 按照命令行步骤执行 先安装依赖 再 打包 你也可以自定义         run: |           npm install           npm build       # 完成打包之后 使用 github-pages-deploy-action 去自己把打包后的产物发布上去       - name: Deploy ????         uses: JamesIves/github-pages-deploy-action@v4.3.0         with:           branch: gh-pages # 发布到哪个分支？           folder: build # 打包的文件目录           clean-exclude: | # 忽略清除的文件 可以是文件名路径等 每次发布前都会清除所有文件所以需要 屏蔽一些文件或者目录不要清除。              .gitignore</code></pre> <ol start="3"> <li> <p>完成以上文件之后，推送到远程仓库即可。</p> </li> <li> <p>注意触发条件。</p> </li> </ol> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37932.htm">宠物医院好评怎么写文案 宠物医院好评怎么写文案简短</a></p>
+                                        <p>下一个：<a href="/news/article-38439.htm">python数据可视化-matplotlib入门(5)-饼图和堆叠图</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe-links.htm" title="1月8日最新免费节点 | 21.3M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址">1月8日最新免费节点 | 21.3M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-node-subscribe.htm" title="1月10日最新免费节点 | 22.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址">1月10日最新免费节点 | 22.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37458.htm" title="猫三联疫苗一共几针（猫三联疫苗一共几针打）">猫三联疫苗一共几针（猫三联疫苗一共几针打）</a></li>
+                        <li class="py-2"><a href="/news/article-37459.htm" title="动物疫苗龙头企业名单公示最新（动物疫苗龙头企业名单公示最新消息）">动物疫苗龙头企业名单公示最新（动物疫苗龙头企业名单公示最新消息）</a></li>
+                        <li class="py-2"><a href="/news/article-36970.htm" title="微信APP支付V3版本签名 APP下单/订单查询接口Python版实现">微信APP支付V3版本签名 APP下单/订单查询接口Python版实现</a></li>
+                        <li class="py-2"><a href="/news/article-37931.htm" title="重庆宠物领养中心宠物领养（重庆宠物猫领养中心）">重庆宠物领养中心宠物领养（重庆宠物猫领养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-clash-windows.htm" title="1月7日最新免费节点 | 19.6M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址">1月7日最新免费节点 | 19.6M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-clash-node.htm" title="1月9日最新免费节点 | 20.1M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址">1月9日最新免费节点 | 20.1M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38438.htm" title="github ations 入门使用">github ations 入门使用</a></li>
+                        <li class="py-2"><a href="/news/article-36817.htm" title="动物疫苗行业排名榜最新 动物疫苗行业排名榜最新">动物疫苗行业排名榜最新 动物疫苗行业排名榜最新</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p>
+                            <a href="/">首页</a> |
+                            <a href="/free-node/">免费节点</a> |
+                            <a href="/news/">新闻资讯</a> |
+                            <a href="/about-us.htm">关于我们</a> |
+                            <a href="/disclaimer.htm">免责申明</a> |
+                            <a href="/privacy.htm">隐私申明</a> |
+                            <a href="/sitemap.xml">网站地图</a>
+                        </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
