@@ -2,11 +2,22 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://clashagent.github.io/news/article-40396.htm" />
+        <link rel="canonical" href="https://clashagent.github.io/news/article-42385.htm" />
     <meta charset="utf-8">
-    <title>关于 AOP 切面导致 WebSocket 的 @ServerEndPoint 无法注入的问题</title>
-        <meta name="description" content="关于AOP切面导致WebSocket的@ServerEndPoint无法注入的问题  前言 原因和解决方案     今天给我的毕业设计加上了AOP 日志拦截，结果导致了WebSocket 的报错。，错" />
+    <title>css解决高度自适应问题（使用flex）</title>
+        <meta name="description" content="这篇文章通过flex来解决高度自适应问题，纯用css，还是昨天这个例子 需求和上篇文章一样，这里再重复一遍   这个矩形的高度和浏览器窗口的高度相同，不能出现纵向滚动条； 绿色部分高度固定，比如50p" />
         <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-42385.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="css解决高度自适应问题（使用flex）" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/a828406aabb0013ac015b7bcca4a3f60.webp" />
+        <meta property="og:release_date" content="2025-01-18T07:14:26" />
+    <meta property="og:updated_time" content="2025-01-18T07:14:26" />
+        <meta property="og:description" content="这篇文章通过flex来解决高度自适应问题，纯用css，还是昨天这个例子 需求和上篇文章一样，这里再重复一遍   这个矩形的高度和浏览器窗口的高度相同，不能出现纵向滚动条； 绿色部分高度固定，比如50p" />
+        
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
@@ -60,7 +71,7 @@
             </nav>
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">关于 AOP 切面导致 WebSocket 的 @ServerEndPoint 无法注入的问题</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">css解决高度自适应问题（使用flex）</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
                             <li class="breadcrumb-item"><a href="/">首页</a></li>
@@ -76,10 +87,10 @@
                 <div class="row">
                     <div class="col-md-9">
                                         <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
-                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>关于AOP切面导致WebSocket的@ServerEndPoint无法注入的问题</h3> <ul> <li><a href="#_5" rel="nofollow">前言</a></li> <li><a href="#_17" rel="nofollow">原因和解决方案</a></li> </ul> </div> <hr color="#000000" size="1&quot;"/> </h1> <p><font color="#999AAA">今天给我的毕业设计加上了<code>AOP</code> 日志拦截，结果导致了<code>WebSocket</code> 的报错。，错误信息为：</font></p> <pre><code class="prism language-bash">Failed to register @ServerEndpoint class: class pers.xuyijie.communityinteractionsystem.websocket.MyWebSocket<span class="token variable">$$</span>EnhancerBySpringCGLIB Caused by: javax.websocket.DeploymentException: Cannot deploy POJO class<span class="token punctuation">[</span>pers.xuyijie.communityinteractionsystem.websocket.MyWebSocket<span class="token variable">$$</span>EnhancerBySpringCGLIB</code></pre> <hr color="#000000" size="1&quot;"/> </h1> <p><font color="#999AAA">原因是因为<code>WebServerContainer</code> 里面的<code>addEndPoint</code> 方法里的<code>annotation</code> 为 null。<img decoding="async" src="http://img.555519.xyz/uploads3/20220721/a22897de83725957806f3edec5dabe03.jpg" alt="关于 AOP 切面导致 WebSocket 的 @ServerEndPoint 无法注入的问题"><font color="#999AAA">感谢 华阳余文乐https://blog.csdn.net/qq_15807785/article/details/83547978 ，上图是他的调试截图。</font></font></p> <p><font color="#999AAA">导致为 null 的原因是因为 aop 的<code>@PointCut</code> 注解和 Aop 自定义的<code>@Log</code> 注解，总之，aop 不能作用到 websocket 的文件，否则就会导致问题。</font></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/c02e07c76fe321910a9636984fe270db.jpg" alt="关于 AOP 切面导致 WebSocket 的 @ServerEndPoint 无法注入的问题"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/179c3df2ce4218d84a68486c048b44b2.jpg" alt="关于 AOP 切面导致 WebSocket 的 @ServerEndPoint 无法注入的问题"><br /><font color="#999AAA">去掉 WebSocket 上的<code>@Log</code>，并确保<code>@PointCut 的 execution 中的包路径不包含</code> WebSocket 的文件就可以了。</font></p> <p>启动成功<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/6d7cb713143b622b089be86f34f92581.jpg" alt="关于 AOP 切面导致 WebSocket 的 @ServerEndPoint 无法注入的问题"></p> <hr color="#000000" size="1&quot;"/></div> 			                <div class="clearfix"></div>
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <p>这篇文章通过flex来解决高度自适应问题，纯用css，还是昨天这个例子<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/ff2374fff204f7ff8f24bb8536e62b51.jpg" alt="css解决高度自适应问题（使用flex）"><br /> 需求和上篇文章一样，这里再重复一遍</p> </h1> <ol> <li>这个矩形的高度和浏览器窗口的高度相同，不能出现纵向滚动条；</li> <li>绿色部分高度固定，比如50px；</li> <li>紫色部分填充剩余的高度；</li> </ol> <p>html结构如下：</p> <pre><code>&lt;div id="root"&gt;   &lt;header&gt;    test   &lt;/header&gt;   &lt;main&gt;      content   &lt;/main&gt; &lt;/div&gt;</code></pre> <p>首先要定义一个弹性容器，然后根据需求我们得知弹性盒子中内容是纵向排列，高度占满全屏，这里我们height用100vh，（注意：height:100%等同于height:100vh，但是前者div不会撑开）</p> <p>接下来直接上css代码</p> <pre><code> body {       margin: 0;       padding: 0;     }     #root {       display: flex;       flex-direction: column;       height: 100vh;     }      header {       height: 50px;       flex: 0 0 auto;       background: orange;     }      main {       flex-grow: 1;       background-color: blueviolet;     }</code></pre> <p>ok了，写这篇文章，是因为之前项目中遇到一个这么要死的布局，被需求三弄的头痛，后面在一个大佬的指点下选择了flex，所以作为一个小小的编程技巧留用。</p> <p>另外补充一下flex的桃园三兄弟之flex-grow、flex-shrink、flex-basis详解（这是别人博客里面看到，个人觉得蛮好理解弄过来的，这里只给定义解释，具体实例，还请参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/m0_37058714/article/details/80765562"  rel="nofollow">https://blog.csdn.net/m0_37058714/article/details/80765562</a>）</p> </h1> <p>在flex布局中，父元素在不同宽度下，子元素是如何分配父元素空间的。</p> <p>(注意：这三个属性都是在子元素上设置的，下面小编要讲的是父元素，指以flex布局的元素(display:flex))</p> <p>小编这里先教一下大家如何快速记住这三个属性：</p> <ol> <li>flex-basis （首先是 flex-basis ，basis英文意思是&lt;主要成分&gt;，所以他和width放在一起时,肯定把width干掉，basis遇到width时就会说我才是最主要的成分，你是次要成分，所以见到我的时候你要靠边站。）</li> <li>flex-grow（其次是 flex-grow，grow英文意思是&lt;扩大，扩展，增加&gt;,这就代表当父元素的宽度大于子元素宽度之和时，并且父元素有剩余，这时，flex-grow就会说我要成长，我要长大，怎么样才能成长呢，当然是分享父元素的空间了。见下面第二个属性的内容<br /> ）</li> <li>flex-shrink（最后是 flex-shrink， shrink英文意思是&lt;收缩，&gt;，这就代表当父元素的宽度小于子元素宽度之和时，并且超出了父元素的宽度，这时，flex-shrink就会说外面的世界太苦了，我还是回到父亲的怀抱中去吧！因此，flex-shrink就会按照一定的比例进行收缩。）</li> </ol> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-39918.htm">动物诊疗许可证申领条件有哪些要求（动物诊疗许可证申领准备材料）</a></p>
-                                        <p>下一个：<a href="/news/article-40397.htm">被猫咬出血了一定要***吗要多少钱（被猫咬出血要***么）</a></p>
+                                        <p>上一个：<a href="/news/article-41888.htm">上海24h宠物医院（上海宠物医院24小时急诊上门）</a></p>
+                                        <p>下一个：<a href="/news/article-42386.htm">动物疫苗接种方法及注意事项视频教学下载 动物疫苗接种方法及注意事项视频教学下载</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -89,16 +100,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-37458.htm" title="猫三联疫苗一共几针（猫三联疫苗一共几针打）">猫三联疫苗一共几针（猫三联疫苗一共几针打）</a></li>
+                        <li class="py-2"><a href="/news/article-37932.htm" title="宠物医院好评怎么写文案 宠物医院好评怎么写文案简短">宠物医院好评怎么写文案 宠物医院好评怎么写文案简短</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-1-13-clash-v2ray-ss-ssr.htm" title="1月13日最新免费节点 | 20.9M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址">1月13日最新免费节点 | 20.9M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址</a></li>
                         <li class="py-2"><a href="/news/article-39918.htm" title="动物诊疗许可证申领条件有哪些要求（动物诊疗许可证申领准备材料）">动物诊疗许可证申领条件有哪些要求（动物诊疗许可证申领准备材料）</a></li>
-                        <li class="py-2"><a href="/news/article-40397.htm" title="被猫咬出血了一定要***吗要多少钱（被猫咬出血要***么）">被猫咬出血了一定要***吗要多少钱（被猫咬出血要***么）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-14-clash-windows.htm" title="1月14日最新免费节点 | 18.3M/S|2025年Clash/V2ray/Shadowrocket/SSR订阅链接地址">1月14日最新免费节点 | 18.3M/S|2025年Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-15-node-share-links.htm" title="1月15日最新免费节点 | 18.1M/S|2025年V2ray/Shadowrocket/SSR/Clash订阅链接地址">1月15日最新免费节点 | 18.1M/S|2025年V2ray/Shadowrocket/SSR/Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-36971.htm" title="和田市宠物店电话地址（和田卖宠物的地方）">和田市宠物店电话地址（和田卖宠物的地方）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-node-subscribe-links.htm" title="1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址">1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-41377.htm" title="想开宠物店怎么找货源（开宠物店的进货渠道）">想开宠物店怎么找货源（开宠物店的进货渠道）</a></li>
-                        <li class="py-2"><a href="/news/article-38438.htm" title="github ations 入门使用">github ations 入门使用</a></li>
+                        <li class="py-2"><a href="/news/article-36818.htm" title="大型狗粮设备生产线价格表（大型狗粮设备生产线价格表及图片）">大型狗粮设备生产线价格表（大型狗粮设备生产线价格表及图片）</a></li>
+                        <li class="py-2"><a href="/news/article-36970.htm" title="微信APP支付V3版本签名 APP下单/订单查询接口Python版实现">微信APP支付V3版本签名 APP下单/订单查询接口Python版实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-ssr-subscribe.htm" title="1月18日最新免费节点 | 20.1M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址">1月18日最新免费节点 | 20.1M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40891.htm" title="动物疫苗产业链分析报告（动物疫苗市场规模）">动物疫苗产业链分析报告（动物疫苗市场规模）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-clash.htm" title="1月12日最新免费节点 | 20.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址">1月12日最新免费节点 | 20.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-39415.htm" title="动物美容师资格证怎么考试（宠物美容师证考试内容）">动物美容师资格证怎么考试（宠物美容师证考试内容）</a></li>
+                        <li class="py-2"><a href="/news/article-40890.htm" title="IDEA启动：Internal error. Please refer to https://jb.gg/ide/critical-startup-errors">IDEA启动：Internal error. Please refer to https://jb.gg/ide/critical-startup-errors</a></li>
                     </ul>
     </div>
 </div>
@@ -110,7 +121,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
