@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-48809.htm" />
+    <meta charset="utf-8">
+    <title>springboot中spring.profiles.include的妙用</title>
+        <meta name="description" content="我们有这样的一个springboot项目。项目分为开发、测试、生产三个不同阶段(环境)，每个阶段都会有db、ftp、redis等的不同配置信息。我们可以使用spring.profiles.includ" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-48809.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="springboot中spring.profiles.include的妙用" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/4152fbdc9f31431e0476a6465d08ffe2.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:17:27" />
+    <meta property="og:updated_time" content="2025-01-31T07:17:27" />
+        <meta property="og:description" content="我们有这样的一个springboot项目。项目分为开发、测试、生产三个不同阶段(环境)，每个阶段都会有db、ftp、redis等的不同配置信息。我们可以使用spring.profiles.includ" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot中spring.profiles.include的妙用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                                <a href="#" class="nav-item nav-link">关于</a>
+                        <a href="#" class="nav-item nav-link">联系</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">springboot中spring.profiles.include的妙用</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>我们有这样的一个springboot项目。项目分为开发、测试、生产三个不同阶段(环境)，每个阶段都会有db、ftp、redis等的不同配置信息。我们可以使用spring.profiles.include来实现三种不同环境的一键切换。</p> <p>项目总(入口)配置文件：</p> <blockquote> <p>bootstrap.yml&nbsp; ，内容如下</p> <p>spring.profiles.active:&nbsp; dev&nbsp; #dev、test、prod 三种配置可以在这里进行一键切换，默认激活 dev(开发)环境配置</p> </blockquote> <p>项目开发环境配置文件：</p> <blockquote> <p>application-dev.yml (开发环境入口配置)、application-devDb.yml 、application-devFtp.yml、application-devRedis.yml&nbsp;</p> <p>application-dev.yml&nbsp;中含有如下内容</p> <p>spring.profiles.include: devDb,devFtp,devRedis</p> </blockquote> <p>项目测试环境配置文件：</p> <blockquote> <p>application-test.yml (测试环境入口配置)、application-testDb.yml 、application-testFtp.yml、application-testRedis.yml&nbsp;</p> <p>application-test.yml&nbsp;中含有如下内容</p> <p>spring.profiles.include:&nbsp;testDb,testFtp,testRedis</p> </blockquote> <p>项目生产环境配置文件：</p> <blockquote> <p>application-prod.yml (生产环境入口配置)、application-prodDb.yml 、application-prodFtp.yml、application-prodRedis.yml&nbsp;</p> <p>application-prod.yml&nbsp;中含有如下内容</p> <p>spring.profiles.include:&nbsp;prodDb,prodFtp,prodRedis</p> </blockquote> <p>spring.profiles.include&nbsp;的作用是可以叠加激活新的profile&nbsp;，这样可以在总的项目配置(bootstrap.yml)中实现一键切换dev、test、prod三者不同环境, 即&nbsp;</p> <p>切换为dev时，同时激活了dev、devDb、devFtp、devRedis&nbsp;的profile</p> <p>切换为test时，同时激活了test、testDb、testFtp、testRedis&nbsp;的profile</p> <p>切换为prod时，同时激活了prod、prodDb、prodFtp、prodRedis&nbsp;的profile</p> <p>另外：&nbsp;在yml配置文件中配置List&lt;String&gt;&nbsp;的值，可以采用&nbsp; -子项&nbsp;的方式，如 ：</p> <p>spring.profiles.include:</p> <p>&nbsp; -&nbsp;子项1</p> <p>&nbsp; -&nbsp;子项2</p> <p>&nbsp; -&nbsp;子项3&nbsp; &nbsp;</p> <p>也可以采用&nbsp;逗号分隔元素列表的方式，如：&nbsp;</p> <p>spring.profiles.include:&nbsp;子项1,子项2,子项3&nbsp; &nbsp;&nbsp;</p> <hr/> <p><strong>通过一个测试了解：spring.profiles.active和spring.profiles.include的区别</strong></p> <blockquote> <p>源引自：https://blog.csdn.net/happyblueice/article/details/86538843</p> <p>application.properties文件内容</p> <pre>spring.profiles.active=test4 pring.profiles.include=test3,test5 version=1 name=Tom</pre> <p>application-test2.properties文件内容</p> <pre>pring.profiles.include=test3,test4 version=2</pre> <p>application-test3.properties文件内容</p> <pre>version=3 name=Allen</pre> <p>application-test4.properties文件内容</p> <pre>name=Jim</pre> <p>application-test5.properties</p> <pre>version=5 name=Ifty</pre> <pre>无参启动例如  java -jar example.jar  先加载application.properties文件 最终version=5,name=Jim  有参启动例如 java -jar example.jar --spring.profiles.active=test2 先加载application-test2.properties文件，再加载application.properties文件 最终version=2,name=Ifty  总结： 多个配置文件中有同一个值，以下情况获取值的效果： 1.启动命令不带--spring.profiles.active参数以application.properties首先启动 按顺序所有文件第一个配置的spring.profiles.active属性中指定的最后一个文件中含有该属性的值为准 如果所有文件都没有spring.profiles.active，那么以pring.profiles.include配置的最后一个属性文件中的值为准 2.启动命令带--spring.profiles.active参数以参数指定的属性文件首先启动 此情况，已命令指定的配置文件中的值为准，其他文件中再配置spring.profiles.active也不会生效，如果不存在值，那么会以pring.profiles.include指定的最后一个文件中的值为准  简要说 启动命令spring.profiles.active指定文件中的值 &gt; 文件中spring.profiles.active指定的文件列表中最后一次出现的值 &gt; 文件中spring.profiles.include指定的文件列表中最后一次出现的值  （注意：无论是否配置启动命令参数指定文件，最后都会加载application.properties，它里边配置的信息也很关键）</pre> </blockquote></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48268.htm">宠物用品批发进货渠道宠物用品优选倔强的尾巴（宠物用品批发商）</a></p>
+                                        <p>下一个：<a href="/news/article-48810.htm">Mysql数据库基本操作（六）多表查询-内连接查询，外连接查询</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36818.htm" title="大型狗粮设备生产线价格表（大型狗粮设备生产线价格表及图片）">大型狗粮设备生产线价格表（大型狗粮设备生产线价格表及图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe-links.htm" title="1月8日最新免费节点 | 21.3M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址">1月8日最新免费节点 | 21.3M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-ssr-node.htm" title="1月29日最新免费节点 | 20.7M/S|2025年V2ray/Clash/SSR/Shadowrocket订阅链接地址">1月29日最新免费节点 | 20.7M/S|2025年V2ray/Clash/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46847.htm" title="广州宠物领养平台官网地址在哪里（广州宠物狗领养网站）">广州宠物领养平台官网地址在哪里（广州宠物狗领养网站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-ssr-subscribe.htm" title="1月25日最新免费节点 | 21.3M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址">1月25日最新免费节点 | 21.3M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-node-share.htm" title="1月19日最新免费节点 | 19.5M/S|2025年SSR/V2ray/Shadowrocket/Clash订阅链接地址">1月19日最新免费节点 | 19.5M/S|2025年SSR/V2ray/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-clash-node.htm" title="1月28日最新免费节点 | 21M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址">1月28日最新免费节点 | 21M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-clash.htm" title="1月12日最新免费节点 | 20.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址">1月12日最新免费节点 | 20.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-subscribe-node.htm" title="1月30日最新免费节点 | 19.4M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址">1月30日最新免费节点 | 19.4M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46351.htm" title="宠物猫疫苗多少钱一个（宠物猫疫苗多少钱一个疗程）">宠物猫疫苗多少钱一个（宠物猫疫苗多少钱一个疗程）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p>
+                            <a href="/">首页</a> |
+                            <a href="/free-node/">免费节点</a> |
+                            <a href="/news/">新闻资讯</a> |
+                            <a href="/about-us.htm">关于我们</a> |
+                            <a href="/disclaimer.htm">免责申明</a> |
+                            <a href="/privacy.htm">隐私申明</a> |
+                            <a href="/sitemap.xml">网站地图</a>
+                        </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
