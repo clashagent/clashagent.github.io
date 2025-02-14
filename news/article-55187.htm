@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-55187.htm" />
+    <meta charset="utf-8">
+    <title>java实现线程安全的单例模型</title>
+        <meta name="description" content="单例模式：确保某要给类只有一个实例，并提供一个全局访问带你来访问这个实例。   //饿汉模式：（线程安全） public class Singleton1 {     // 静态私有成员变量     " />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-55187.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="java实现线程安全的单例模型" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/a72532a23e668920a2f247f99ac2cd8f.webp" />
+        <meta property="og:release_date" content="2025-02-12T09:06:53" />
+    <meta property="og:updated_time" content="2025-02-12T09:06:53" />
+        <meta property="og:description" content="单例模式：确保某要给类只有一个实例，并提供一个全局访问带你来访问这个实例。   //饿汉模式：（线程安全） public class Singleton1 {     // 静态私有成员变量     " />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java实现线程安全的单例模型">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">java实现线程安全的单例模型</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>单例模式：确保某要给类只有一个实例，并提供一个全局访问带你来访问这个实例。</p> </blockquote> </h1> <pre><code class="prism language-java"><span class="token comment">//饿汉模式：（线程安全）</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton1</span> <span class="token punctuation">{<!-- --></span>     <span class="token comment">// 静态私有成员变量</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> Singleton1 instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 私有构造函数</span>     <span class="token keyword">private</span> <span class="token function">Singleton1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token punctuation">}</span> 　　<span class="token comment">// 静态公有工厂方法，返回唯一实例</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> Singleton1 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <pre><code class="prism language-java"><span class="token comment">// 懒汉模式：（线程不安全，需要通过双重检查锁定机制控制）（双检锁）</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton2</span> <span class="token punctuation">{<!-- --></span>  　　<span class="token comment">// 静态私有成员变量</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> Singleton2 instance <span class="token operator">=</span> null<span class="token punctuation">;</span> 　　<span class="token comment">// 私有构造函数</span>     <span class="token keyword">private</span> <span class="token function">Singleton2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token punctuation">}</span> 　　<span class="token comment">// 静态公有工厂方法，判断成员变量是否为空，不为空则实例化</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> Singleton2 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span>             instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>优缺点：</p> <blockquote> <p>饿汉模型不需要考虑线程安全问题，调用速度和访问速度优于懒汉模型，但是由于它不管是是否被调用都会提前创建类的实例，所以资源利用率比较低，系统加载时间比较长。<br /> 懒汉模式实现了延迟加载，但是需要克服多线程同时访问的问题，需要通过双检锁（双重检查锁定机制）来进行控制，导致性能受到一定影响。</p> </blockquote> </h1> <p><strong>假设有两个线程AB，其中A执行到检查方法，判断实例为空null,那么A会得到ture的结果，但是B线程运行，也有可能出现判断实例为空null的情况，那么两个线程都会执行instance = new Singleton();从而创建了两个实例。</strong></p> <h2> <a id="_42" rel="nofollow"></a>双检锁（双重检查锁定机制）</h2> <p>为了避免以上这种尴尬的情况，需要将这两行代码加上同步锁。但这还不够完美，每次调用函数得到实例都要试图加上一个同步锁（类锁），而加锁是一个非常耗时的操作，没有必要的情况下应该尽量避免。基于这种想法，我们可以在加锁前再次判断实例是否为空。这就是双重检查锁定机制。</p> <p>还有一点，定义 instance 变量时需要使用 volatile 进行修饰，因为需要保证 instance 变量发生修改后可以及时将结果刷新到主内存中，对其他线程可见。</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton3</span> <span class="token punctuation">{<!-- --></span> 　　<span class="token comment">// 私有静态成员变量</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> Singleton3 instance <span class="token operator">=</span> null<span class="token punctuation">;</span> 　　<span class="token comment">// 私有构造函数</span>     <span class="token keyword">private</span> <span class="token function">Singleton3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token punctuation">}</span> 　　<span class="token comment">// 共有静态工厂方法</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> Singleton3 <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 　　<span class="token comment">// 判断 instance 是否为空,为空-&gt;加锁，创建实例（为了进程安全，再次判断），不为空-&gt;返回实例</span>         <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>Singleton3<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>                 <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span> null<span class="token punctuation">)</span>                     instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token punctuation">}</span>         <span class="token punctuation">}</span>         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> </h1> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{<!-- --></span> 	<span class="token comment">//私有构造函数</span> 	<span class="token keyword">private</span> <span class="token function">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token punctuation">}</span>     <span class="token comment">//静态内部类</span>     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">HolderClass</span><span class="token punctuation">{<!-- --></span>     	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Singleton instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> 	<span class="token comment">//静态公有工厂方法，返回内部类中创建的实现</span> 	<span class="token keyword">public</span> <span class="token keyword">static</span> singleton <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		<span class="token keyword">return</span> HolderClass<span class="token punctuation">.</span>instance<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <blockquote> <p>加载Singleton类的过程中，会为类变量在方法区中分配内存空间并初始化，但是，<strong>并不会加载静态内部类HolderClass</strong>.<br /> 当调用Singleton.getInstance()，执行return HolderClass.instance语句时，HolderClass类才会被加载，instance对象才会被初始化。</p> </blockquote> <p>上面的解释说明使用静态内部类创建实例是 懒加载 的； HolderClass 只会加载一次，保证了 instance 是单例的；类加载过程是线程安全的，保证 instance 初始化的过程是线程安全的。</p> </h1> <p>利用枚举的特性，让JVM来帮我们保证线程安全和单一实例</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> Singleton <span class="token punctuation">{<!-- --></span>      INSTANCE<span class="token punctuation">;</span>      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"doSomething"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{<!-- --></span>      <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         Singleton<span class="token punctuation">.</span>INSTANCE<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>  <span class="token punctuation">}</span>   </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54632.htm">动物疫苗批号查询网址官网入口（动物疫苗2021）</a></p>
+                                        <p>下一个：<a href="/news/article-55188.htm">北京给鹦鹉看病的医院（北京给鹦鹉看病的医院哪家好）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-clash-node.htm" title="1月28日最新免费节点 | 21M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址">1月28日最新免费节点 | 21M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-node-subscribe-links.htm" title="1月8日最新免费节点 | 21.3M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址">1月8日最新免费节点 | 21.3M/S|2025年SSR/V2ray/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-ssr-subscribe.htm" title="1月24日最新免费节点 | 22.7M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址">1月24日最新免费节点 | 22.7M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50904.htm" title="给宠物医院的好评怎么写文案呢（给宠物医院的好评一百字）">给宠物医院的好评怎么写文案呢（给宠物医院的好评一百字）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-clash-v2ray-ss-ssr.htm" title="2月10日最新免费节点 | 22.3M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址">2月10日最新免费节点 | 22.3M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-clash.htm" title="1月12日最新免费节点 | 20.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址">1月12日最新免费节点 | 20.8M/S|2025年Clash/SSR/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55740.htm" title="被猫抓伤破皮要打针吗超过24小时（被猫抓伤几小时内打针有效）">被猫抓伤破皮要打针吗超过24小时（被猫抓伤几小时内打针有效）</a></li>
+                        <li class="py-2"><a href="/news/article-41887.htm" title="Rabbit MQ 怎么保证可靠性、幂等性、消费顺序">Rabbit MQ 怎么保证可靠性、幂等性、消费顺序</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-node-subscribe.htm" title="2月9日最新免费节点 | 18M/S|2025年SSR/Clash/Shadowrocket/V2ray订阅链接地址">2月9日最新免费节点 | 18M/S|2025年SSR/Clash/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50368.htm" title="兽医资格证需要什么条件才能考公务员（兽医考公务员需什么学历）">兽医资格证需要什么条件才能考公务员（兽医考公务员需什么学历）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p>
+                            <a href="/">首页</a> |
+                            <a href="/free-node/">免费节点</a> |
+                            <a href="/news/">新闻资讯</a> |
+                            <a href="/about-us.htm">关于我们</a> |
+                            <a href="/disclaimer.htm">免责申明</a> |
+                            <a href="/privacy.htm">隐私申明</a> |
+                            <a href="/sitemap.xml">网站地图</a>
+                        </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
