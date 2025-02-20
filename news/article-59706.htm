@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-59706.htm" />
+    <meta charset="utf-8">
+    <title>Vue3+Element plus项目搭建</title>
+        <meta name="description" content="方法一： 1. 新建index.html文件，导入html模板 2. 在head头部通过CDN引入Vue3和Element-plus UI框架 3. 新增标签属性id，并加入按钮的点击事件和变量 4." />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-59706.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="Vue3+Element plus项目搭建" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/e6920ffc65ae95c7ca44a551571e0814.webp" />
+        <meta property="og:release_date" content="2025-02-20T09:55:36" />
+    <meta property="og:updated_time" content="2025-02-20T09:55:36" />
+        <meta property="og:description" content="方法一： 1. 新建index.html文件，导入html模板 2. 在head头部通过CDN引入Vue3和Element-plus UI框架 3. 新增标签属性id，并加入按钮的点击事件和变量 4." />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue3+Element plus项目搭建">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Vue3+Element plus项目搭建</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h3>方法一：</h3> <p>1. 新建index.html文件，导入html模板<br /> 2. 在head头部通过CDN引入Vue3和Element-plus UI框架<br /> 3. 新增标签属性id，并加入按钮的点击事件和变量<br /> 4. 定义变量运用组合式api以及setup函数绑定变量暴露事件<br /> 5. 最后创建应用将变量和插件挂在到节点上</p> <pre><code>&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;     &lt;title&gt;Vue3&lt;/title&gt;     &lt;!-- 导入样式 --&gt;     &lt;link  href="//unpkg.com/element-plus/dist/index.css" /&gt;     &lt;!-- 导入 Vue 3 --&gt;     &lt;script src="https://unpkg.com/vue@next"&gt;&lt;/script&gt;     &lt;!-- 导入组件库 --&gt;   &lt;script src="//unpkg.com/element-plus"&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt;     &lt;div id="app"&gt;         &lt;el-button type="primary" @click="onClick"&gt;点击了{<!-- -->{time}}次&lt;/el-button&gt;     &lt;/div&gt; &lt;/body&gt; &lt;script&gt;     const vue3Composition = {         setup() {             const time = Vue.ref(0)             const onClick = () =&gt; {                 time.value ++             }             return {                 time,                 onClick             }         }     }     const vm = Vue.createApp(vue3Composition).use(ElementPlus).mount('#app') &lt;/script&gt; &lt;/html&gt;</code></pre> <h3>方法二：</h3> <p>1. 通过脚手架Vite创建项目</p> <pre><code>npm init vite@latest</code></pre> <p>2. 输入项目名称</p> <pre><code>? Project name: » vite-vue3</code></pre> <p>3. 选择框架（vue）</p> <pre><code>? Select a framework: » - Use arrow-keys. Return to submit.     vanilla &gt;   vue     react     preact     lit     svelte</code></pre> <p>4. 选择模板</p> <pre><code>?  Select a variant: » - Use arrow-keys. Return to submit. &gt;   vue     vue-ts</code></pre> <p>&nbsp;5. 启动项目</p> <pre><code>cd vite-vue3 npm install npm run dev</code></pre> <h3>方法三：</h3> <p>1. 通过脚手架vue-cli创建项目</p> <pre><code>npm install -g @vue/cli vue create cli-vue3</code></pre> <p>2. 选择预先配置</p> <pre><code>? Please pick a preset: &gt; Default ([Vue 3] babel, eslint)   Default ([Vue 2] babel, eslint)   Manually select features</code></pre> <p>3. 启动项目</p> <pre><code>cd cli-vue3 npm run serve</code></pre> <h3>安装Element plus插件</h3> <pre><code>npm install element-plus --save</code></pre> <p>1. main.js导入Element plus,全局配置对象</p> <pre><code>import { createApp } from 'vue' import App from './App.vue' import ElementPlus from 'element-plus' import 'element-plus/dist/index.css' import zhCn from 'element-plus/es/locale/lang/zh-cn'  const app = createApp(App) app.use(ElementPlus, {     size: 'small',     zIndex: 3000,     locale: zhCn })  app.mount('#app')</code></pre> <p>2. 实例化组件运用基础组件</p> <pre><code>&lt;script setup&gt; import { ref } from 'vue' const time = ref(0) const onClick = () =&gt; {   time.value ++ } &lt;/script&gt;  &lt;template&gt;   &lt;el-button type="primary" @click="onClick"&gt;点击了{<!-- -->{time}}次&lt;/el-button&gt; &lt;/template&gt;</code></pre> <h3>脚手架vite与vue-cli运行时间对比</h3> <p>vue-cli运行时间14697毫秒</p> <p style="text-align:center;"><img fetchpriority="high" decoding="async" alt="" height="137" src="http://img.555519.xyz/uploads3/20220821/a4edb050ffe78721be8b4c39719822cb.jpg"></p> <p>vite运行时间261毫秒</p> <p style="text-align:center;"><img decoding="async" alt="" height="107" src="http://img.555519.xyz/uploads3/20220821/55ad01994ea865671fd2c3f415e04352.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59134.htm">学校门口暴利生意（学校门口暴利生意农业大楼）</a></p>
+                                        <p>下一个：<a href="/news/article-59707.htm">无货源怎么在闲鱼上卖货（无货源怎么在闲鱼上卖货呢）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36817.htm" title="动物疫苗行业排名榜最新 动物疫苗行业排名榜最新">动物疫苗行业排名榜最新 动物疫苗行业排名榜最新</a></li>
+                        <li class="py-2"><a href="/news/article-41377.htm" title="想开宠物店怎么找货源（开宠物店的进货渠道）">想开宠物店怎么找货源（开宠物店的进货渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-46846.htm" title="动物疫苗周期和猪周期的区别（猪疫苗与疫苗间隔时间）">动物疫苗周期和猪周期的区别（猪疫苗与疫苗间隔时间）</a></li>
+                        <li class="py-2"><a href="/news/article-47332.htm" title="宠物粮食价格走势图（宠物粮食价格走势图片）">宠物粮食价格走势图（宠物粮食价格走势图片）</a></li>
+                        <li class="py-2"><a href="/news/article-44867.htm" title="成都宠物托运价格表最新消息（成都宠物托运价格表最新消息电话）">成都宠物托运价格表最新消息（成都宠物托运价格表最新消息电话）</a></li>
+                        <li class="py-2"><a href="/news/article-56288.htm" title="做宠物生意赚钱吗知乎（做宠物的利润有多大）">做宠物生意赚钱吗知乎（做宠物的利润有多大）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-free-high-speed-nodes.htm" title="2月19日最新免费节点 | 21.4M/S|2025年Clash/V2ray/SSR/Shadowrocket订阅链接地址">2月19日最新免费节点 | 21.4M/S|2025年Clash/V2ray/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46351.htm" title="宠物猫疫苗多少钱一个（宠物猫疫苗多少钱一个疗程）">宠物猫疫苗多少钱一个（宠物猫疫苗多少钱一个疗程）</a></li>
+                        <li class="py-2"><a href="/news/article-54632.htm" title="动物疫苗批号查询网址官网入口（动物疫苗2021）">动物疫苗批号查询网址官网入口（动物疫苗2021）</a></li>
+                        <li class="py-2"><a href="/news/article-42886.htm" title="猫喜欢靠近有灵气的人（猫喜欢靠近有灵气的人的寓意）">猫喜欢靠近有灵气的人（猫喜欢靠近有灵气的人的寓意）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p>
+                            <a href="/">首页</a> |
+                            <a href="/free-node/">免费节点</a> |
+                            <a href="/news/">新闻资讯</a> |
+                            <a href="/about-us.htm">关于我们</a> |
+                            <a href="/disclaimer.htm">免责申明</a> |
+                            <a href="/privacy.htm">隐私申明</a> |
+                            <a href="/sitemap.xml">网站地图</a>
+                        </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
