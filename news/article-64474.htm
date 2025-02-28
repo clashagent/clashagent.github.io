@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-64474.htm" />
+    <meta charset="utf-8">
+    <title>Java 方法的定义与调用详解_java</title>
+        <meta name="description" content="目录  1.方法概述 2.方法的定义和调用  2.1 方法定义 2.2 方法调用 2.3 方法的调用过程 2.4 方法练习  3.带参数方法的定义和调用  3.1带参数方法定义 3.2带参数方法调用 " />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-64474.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="Java 方法的定义与调用详解_java" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/a72532a23e668920a2f247f99ac2cd8f.webp" />
+        <meta property="og:release_date" content="2025-02-28T06:56:08" />
+    <meta property="og:updated_time" content="2025-02-28T06:56:08" />
+        <meta property="og:description" content="目录  1.方法概述 2.方法的定义和调用  2.1 方法定义 2.2 方法调用 2.3 方法的调用过程 2.4 方法练习  3.带参数方法的定义和调用  3.1带参数方法定义 3.2带参数方法调用 " />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 方法的定义与调用详解_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Java 方法的定义与调用详解_java</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.方法概述</a></li> <li><a href="#_label1" rel="nofollow">2.方法的定义和调用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">2.1 方法定义</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.2 方法调用</a></li> <li><a href="#_lab2_1_2" rel="nofollow">2.3 方法的调用过程</a></li> <li><a href="#_lab2_1_3" rel="nofollow">2.4 方法练习</a></li> </ul> <li><a href="#_label2" rel="nofollow">3.带参数方法的定义和调用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_4" rel="nofollow">3.1带参数方法定义</a></li> <li><a href="#_lab2_2_5" rel="nofollow">3.2带参数方法调用</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.方法概述</h2> <p>什么是方法</p> <p>方法(method)是将具有独立功能的代码块组织成为一个整体，使其具有图书功能的代码集</p> <p>注意：</p> <ul> <li>方法必须先创建才可以使用，该过程称为方法定义</li> <li>方法创建后并不是直接运行的，需要手动使用后才执行，该过程称为方法调用</li> </ul> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.方法的定义和调用</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>2.1 方法定义</h3> <p>格式：</p> <blockquote> <p>public static void 方法名( ){<!-- --></p> <p>//方法名</p> <p>}</p> </blockquote> <p>范例：</p> <div class="ay1code"> <pre class="brush:java;">public static void isEvenNumber( ){            //方法名  }</pre> </div> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.2 方法调用</h3> <p>格式：</p> <blockquote> <p>方法名( );</p> </blockquote> <p>范例：</p> <blockquote> <p>isEvenNumber( );</p> </blockquote> <p>注意：</p> <p>方法必须先定义再调用否则程序将报错</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>2.3 方法的调用过程</h3> <div class="ay1code"> <pre class="brush:java;"> public class MethodDemo {     	public static void main(String[] args) {  		//调用方法  		isEvenNumber();  		  	}  	  		//需求定义一个方法，在方法中定义一个变量，判断数据是否是偶数  	public static void isEvenNumber() {  		//定义变量  		int number = 10;  		//判断改数据是否为偶数  		if(number%2==0){  			System.out.println("该数据为偶数");  			}else{  			System.out.println("该数据为奇数");	  		}  	  	}     }</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>2.4 方法练习</h3> <p>需求，设计一个方法用来打印两个数中的最大数</p> <p>代码示例：</p> <div class="ay1code"> <pre class="brush:java;"> public class text072 {     	public static void main(String[] args) {  		isMaxNumber();     	}  	public static void isMaxNumber() {  		int a=9;  		int b=55;  		if (a&gt;b){  			System.out.println("max为"+a);  		}else{  			System.out.println("max为"+b);  		}  		  	}     }</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.带参数方法的定义和调用</h2> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <h3>3.1带参数方法定义</h3> <p>格式：</p> <blockquote> <p>public static void 方法名（参数）{... ...}</p> </blockquote> <p>格式（单个参数）：</p> <blockquote> <p>public static void 方法名（数据类型  变量名）{... ...}</p> </blockquote> <p>范例（单个参数）：</p> <blockquote> <p>public static void isEvenNumber（int  number）{... ...}</p> </blockquote> <p>格式（多个参数）：</p> <blockquote> <p>public static void 方法名（数据类型  变量名,数据类型 变量名2,,.....）{... ...}</p> </blockquote> <p>范例（单个参数）：</p> <blockquote> <p>public static void isEvenNumber（int  number1, int number2,......）{... ...}</p> </blockquote> <p>注意：</p> <p>1.方法定义时，参数中的数据类型和变量名一个都不能少，缺少任一程序报错</p> <p>2.方法定义时，多个参数之间使用英文逗号隔开</p> <p class="maodian"><a name="_lab2_2_5" rel="nofollow"></a></p> <h3>3.2带参数方法调用</h3> <p>格式：</p> <blockquote> <p>方法名（参数）；</p> </blockquote> <p>格式（单个参数）：</p> <blockquote> <p>方法名（变量名/常量值）;</p> </blockquote> <p>范例：</p> <blockquote> <p>isNumber（5）;</p> </blockquote> <p>格式（多个参数）;</p> <blockquote> <p>方法名（变量名1/常量值1,变量名2/常量值2）;</p> </blockquote> <p>范例：</p> <blockquote> <p>getMax（5,9）;</p> </blockquote> <p>注意：参数的数量与类型必须与方法定义中的设置相匹配，否则程序报错</p> <p>示例代码：定义一个方法，该方法接收一个参数，判断该数据是否为偶数</p> <div class="ay1code"> <pre class="brush:java;">public class text073 {     	public static void main(String[] args) {  		//常量值调用  		isEvenNumber(5);  		//变量的调用  		int number =10 ;  		isEvenNumber(number);     	}  	public static void  isEvenNumber(int number) {  		if(number%2==0){  			System.out.println("true");  		}else{  			System.out.println("false");  		}  	}  }</pre> </div> <p>后续内容明天更新，喜欢的可以点个关注，谢谢！</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-64473.htm">Java设计模式——单例设计模式(八种实例)</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-42886.htm" title="猫喜欢靠近有灵气的人（猫喜欢靠近有灵气的人的寓意）">猫喜欢靠近有灵气的人（猫喜欢靠近有灵气的人的寓意）</a></li>
+                        <li class="py-2"><a href="/news/article-42385.htm" title="css解决高度自适应问题（使用flex）">css解决高度自适应问题（使用flex）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-node-subscribe-links.htm" title="1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址">1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-clash-v2ray-ss-ssr.htm" title="1月13日最新免费节点 | 20.9M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址">1月13日最新免费节点 | 20.9M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-60852.htm" title="幼猫一定要跟人睡不然就一直叫是为什么（幼猫为啥想跟着人睡觉）">幼猫一定要跟人睡不然就一直叫是为什么（幼猫为啥想跟着人睡觉）</a></li>
+                        <li class="py-2"><a href="/news/article-61456.htm" title="纯手工宠物零食推荐（手工 宠物）">纯手工宠物零食推荐（手工 宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-40890.htm" title="IDEA启动：Internal error. Please refer to https://jb.gg/ide/critical-startup-errors">IDEA启动：Internal error. Please refer to https://jb.gg/ide/critical-startup-errors</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-subscribe-node.htm" title="1月20日最新免费节点 | 21.7M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址">1月20日最新免费节点 | 21.7M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-59134.htm" title="学校门口暴利生意（学校门口暴利生意农业大楼）">学校门口暴利生意（学校门口暴利生意农业大楼）</a></li>
+                        <li class="py-2"><a href="/news/article-50902.htm" title="南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）">南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p>
+                            <a href="/">首页</a> |
+                            <a href="/free-node/">免费节点</a> |
+                            <a href="/news/">新闻资讯</a> |
+                            <a href="/about-us.htm">关于我们</a> |
+                            <a href="/disclaimer.htm">免责申明</a> |
+                            <a href="/privacy.htm">隐私申明</a> |
+                            <a href="/sitemap.xml">网站地图</a>
+                        </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
