@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-65703.htm" />
+    <meta charset="utf-8">
+    <title>Linux搭建NFS服务器</title>
+        <meta name="description" content="文章目录  前言 NFS 的使用 搭建一个 NFS 服务器    NFS（Network File System，网络文件系统）是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TC" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-65703.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="Linux搭建NFS服务器" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/e6920ffc65ae95c7ca44a551571e0814.webp" />
+        <meta property="og:release_date" content="2025-03-02T09:36:37" />
+    <meta property="og:updated_time" content="2025-03-02T09:36:37" />
+        <meta property="og:description" content="文章目录  前言 NFS 的使用 搭建一个 NFS 服务器    NFS（Network File System，网络文件系统）是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过TC" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Linux搭建NFS服务器">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Linux搭建NFS服务器</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#_1" rel="nofollow">前言</a></li> <li><a href="#NFS__7" rel="nofollow">NFS 的使用</a></li> <li><a href="#_NFS__52" rel="nofollow">搭建一个 NFS 服务器</a></li> </ul> </div> </h1> <p><strong>NFS</strong>（Network File System，网络文件系统）是FreeBSD支持的文件系统中的一种，它允许网络中的计算机之间通过<strong>TCP/IP</strong> 网络共享资源，主要在<strong>unix</strong> 系列操作系统上使用。在NFS的应用中，<strong>本地NFS的客户端应用可以透明地读写位于远端NFS服务器上的文件，就像访问本地文件一样。</strong><br /> 由于 NFS 支持的功能比较多，而不同的功能都会使用不同的程序来启动，每启动一个功能就会启用一些端口来传输数据，因此 NFS 的功能所对应的<strong>端口并不固定</strong>，如此一来，客户端需要知道服务器端的相关端口才能够连接。这个时候需要介绍RPC。<br /><strong>RPC</strong>（Remote Procedure Call，远程过程调用）的服务。由于当服务器在启动 NFS 时会随机选取数个端口号，并主动向 RPC<strong>注册</strong>，所以 RPC 知道每个 NFS 功能所对应的端口号，RPC 将端口号通知给客户端，让客户端可以连接到正确的端口上去。RPC采用固定端口号<code>port 111</code> 来监听客户端的需求并向客户端响应正确的端口号。</p> <p><font color="#999AAA">在启动NFS之前，要先启动RPC，否则NFS会无法向RPC注册。另外，RPC若重新启动，原来注册的数据会消失不见，因此RPC重启后，它管理的所有服务都需要重新启动以重新向RPC注册。</font></p> </h1> <p>RPC 的主程序：<code>rpcbind</code><br /> NFS 的主程序：<code>nfs-utils</code><br /> 安装：</p> <pre><code class="prism language-shell">yum<span class="token function">install</span> rpcbind -y yum<span class="token function">install</span> nfs-utils -y</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/a68766f9f6295397caafd60e8085d39c.jpg" alt="Linux搭建NFS服务器"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/c21f29896349ff43b3b7f5737b8dea10.jpg" alt="Linux搭建NFS服务器"><br /><code>nfs-utils</code> 的服务名叫<code>nfs-server</code><br /> 在低版本里需要先启动<code>rpcbind</code> 后启动<code>nfs-server</code>，在高版本里启动<code>nfs-server</code> 后<code>rpcbind</code> 自动被启动<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/4238da0637f838fba6942ec99f47d4b4.jpg" alt="Linux搭建NFS服务器"><br /> 他的主配置文件是<code>/etc/exports</code>（不一定存在，需自己添加）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/88b0355db814c812c3adb7b3e818e5ed.jpg" alt="Linux搭建NFS服务器"><br /><code>/usr/sbin/exportfs</code> 是维护 NFS 共享资源的命令，可以使用该命令重新共享<code>/etc/exports</code> 更新的目录资源、将 NFS server 共享的目录卸载或重新共享等</p> <hr/> <p>我们先来做一个简单的只读共享<br /> 创建一个<code>/data</code> 目录：<code>mkdir /data</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/a2a0d49999ad0be77c1afd169420db9f.jpg" alt="Linux搭建NFS服务器"><br /> 编辑配置文件：<code>vim /etc/exports</code><br /> 语法：<code>文件名 客户端IP(权限)</code></p> <table> <thead> <tr> <th>参数值</th> <th>说明</th> </tr> </thead> <tbody> <tr> <td><code>rw</code>、<code>ro</code></td> <td>该目录共享的权限是可读写还是只读，但最终能否读写，还是与文件系统的<code>rwx</code>有关</td> </tr> <tr> <td><code>sync</code>、<code>async</code></td> <td><code>sync</code>代表数据会同步写入到内存与硬盘中，<code>async</code>则代表数据会先暂存于内存当中，而非直接写入硬盘</td> </tr> <tr> <td><code>no_root_squash</code>、<code>root_squash</code></td> <td>若客户端在共享目录里创建的文件的所属者和所属组是 root 用户和 root 组，那么显示文件的属主和属组时有以下两种情况：<code>no_root_squash</code>表示，文件的所属者和所属组是 root 用户和 root 组；<code>root_squash</code>表示将 root 用户和组映射为匿名用户和组（默认设置）。</td> </tr> <tr> <td><code>all_squash</code>、<code>no_all_squash</code></td> <td><code>all_squash</code>：客户端所有用户创建文件时，客户端会将文件的用户和组映射为匿名用户和组；<code>no_all_squash</code>：客户端普通用户创建的文件的 UID 和 GID 是多少，服务端就显示为多少（默认设置）</td> </tr> <tr> <td><code>anonuid=</code>、<code>anongid=</code></td> <td>将文件的用户和组映射为指定的 UID 和 GID ，若不指定默认为 65534（nfsnobody）</td> </tr> </tbody> </table> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/99f63dc9fc06b6e869f9e4b493cf0a18.jpg" alt="Linux搭建NFS服务器"><br /> 在该目录中写入内容：<code>echo this is chi &gt; /data/file</code><br /> 重启服务：<code>systemctl restart nfs-server</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/1af177944122f094f4ae53b84af68645.jpg" alt="Linux搭建NFS服务器"><br /> NFS 服务器关闭防火墙：<code>systemstl stop firewalld</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/3b4862eebbe6068f4d3a491f0d960c8e.jpg" alt="Linux搭建NFS服务器"><br /> 用另一台主机查看一下该 NFS 服务器：<code>showmount -e 192.168.32.128</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/d3d6ac14e13b5bc92fd8455778fbf09c.jpg" alt="Linux搭建NFS服务器"><br /> 在客户端创建挂在点：<code>mkdir -p /client/data1</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/d5254afc90d33b979b8536cc64a5b6c8.jpg" alt="Linux搭建NFS服务器"><br /> 挂在：<code>mount 192.168.32.128:/data data1</code> /<code>df -h</code>查看<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/f7138e2ef855da733e62733577c0ff3b.jpg" alt="Linux搭建NFS服务器"><br /> 挂载成功<br /> 由于这是一个只读的共享，所有只能读取，不能创建或编辑<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/275d3be4f1f27e2907b83d3e65a87cb4.jpg" alt="Linux搭建NFS服务器"></p> </h1> <p>接下来我们搭建一个 NFS 服务器：</p> <ol> <li>开放<code>/nfs/shared</code> 目录，供所有用户查询资料；</li> <li>开放<code>/nfs/upload</code> 目录，该目录为<code>172.24.8.0/24</code> 网段的主机的数据上传目录，并将所有该网段主机上传文件的所属者和所属组映射为<code>nfs-upload</code> ，其 UID 和 GID 为 2001</li> </ol> <hr/> <ol start="3"> <li> <p>创建目录<br /><code>/nfs/shared</code> 目录只供查询，故不需要其他权限<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/b16bc1b51fda197a976a9197817e911c.jpg" alt="Linux搭建NFS服务器"></p> </li> <li> <p>创建<code>nfs-upload</code> 用户：<code>useradd nfs-upload</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/0b2eaa33920e69bb1ad4eaf80fafdd00.jpg" alt="Linux搭建NFS服务器"></p> </li> <li> <p>编写配置文件：<code>vim /etc/exports</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/4f9ccac366fca263ab9a4b059fe3c667.jpg" alt="Linux搭建NFS服务器"></p> </li> <li> <p>重启服务：<code>systemctl restart nfs-server</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/1c109138b59eb5ce82500c8c5b775f49.jpg" alt="Linux搭建NFS服务器"></p> </li> <li> <p>客户端访问 NFS 服务器：<code>showmount -e 192.168.32.128</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/cdf77a25e6da9b531b3f3ffd7b1f0391.jpg" alt="Linux搭建NFS服务器"><br /> 客户端测试<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/d8aedb09a19f758e1cda2dc52f1960f1.jpg" alt="Linux搭建NFS服务器"><br /> 服务端查看用户创建文件<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/39433aefc39c1417bd7894cee3665be7.jpg" alt="Linux搭建NFS服务器"></p> </li> </ol> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-65092.htm">同安有哪些宠物医院比较好 同安有哪些宠物医院比较好的</a></p>
+                                        <p>下一个：<a href="/news/article-65704.htm">动物疫苗业务员能挣多少（动物疫苗经营）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-66332.htm" title="【ES】springboot使用bulkProcessor定时用quartz同步mysql数据到es中（基本引用即用）">【ES】springboot使用bulkProcessor定时用quartz同步mysql数据到es中（基本引用即用）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-clash-windows.htm" title="1月7日最新免费节点 | 19.6M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址">1月7日最新免费节点 | 19.6M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-free-clash.htm" title="2月8日最新免费节点 | 18.6M/S|2025年SSR/Clash/Shadowrocket/V2ray订阅链接地址">2月8日最新免费节点 | 18.6M/S|2025年SSR/Clash/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-high-speed-nodes.htm" title="2月1日最新免费节点 | 18.8M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址">2月1日最新免费节点 | 18.8M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-node-subscribe-links.htm" title="1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址">1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54086.htm" title="动物疫苗价格表最新消息图片及价格大全（动物疫苗的使用方法及注意事项）">动物疫苗价格表最新消息图片及价格大全（动物疫苗的使用方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-61457.htm" title="猫驱虫多久一次体内体外多少钱（猫驱虫多少一次 体内体外）">猫驱虫多久一次体内体外多少钱（猫驱虫多少一次 体内体外）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-clash-subscribe.htm" title="1月26日最新免费节点 | 22.5M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址">1月26日最新免费节点 | 22.5M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49340.htm" title="厦门宠物领养中心在哪里 厦门宠物领养中心在哪里啊">厦门宠物领养中心在哪里 厦门宠物领养中心在哪里啊</a></li>
+                        <li class="py-2"><a href="/news/article-43877.htm" title="宠物的领养协议是有法律保护的吗为什么（领养宠物协议书在法律上属于什么合同）">宠物的领养协议是有法律保护的吗为什么（领养宠物协议书在法律上属于什么合同）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p>
+                            <a href="/">首页</a> |
+                            <a href="/free-node/">免费节点</a> |
+                            <a href="/news/">新闻资讯</a> |
+                            <a href="/about-us.htm">关于我们</a> |
+                            <a href="/disclaimer.htm">免责申明</a> |
+                            <a href="/privacy.htm">隐私申明</a> |
+                            <a href="/sitemap.xml">网站地图</a>
+                        </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>

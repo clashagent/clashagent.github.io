@@ -105,6 +105,7 @@
                   				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.方法概述</a></li> <li><a href="#_label1" rel="nofollow">2.方法的定义和调用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">2.1 方法定义</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.2 方法调用</a></li> <li><a href="#_lab2_1_2" rel="nofollow">2.3 方法的调用过程</a></li> <li><a href="#_lab2_1_3" rel="nofollow">2.4 方法练习</a></li> </ul> <li><a href="#_label2" rel="nofollow">3.带参数方法的定义和调用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_4" rel="nofollow">3.1带参数方法定义</a></li> <li><a href="#_lab2_2_5" rel="nofollow">3.2带参数方法调用</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.方法概述</h2> <p>什么是方法</p> <p>方法(method)是将具有独立功能的代码块组织成为一个整体，使其具有图书功能的代码集</p> <p>注意：</p> <ul> <li>方法必须先创建才可以使用，该过程称为方法定义</li> <li>方法创建后并不是直接运行的，需要手动使用后才执行，该过程称为方法调用</li> </ul> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.方法的定义和调用</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>2.1 方法定义</h3> <p>格式：</p> <blockquote> <p>public static void 方法名( ){<!-- --></p> <p>//方法名</p> <p>}</p> </blockquote> <p>范例：</p> <div class="ay1code"> <pre class="brush:java;">public static void isEvenNumber( ){            //方法名  }</pre> </div> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.2 方法调用</h3> <p>格式：</p> <blockquote> <p>方法名( );</p> </blockquote> <p>范例：</p> <blockquote> <p>isEvenNumber( );</p> </blockquote> <p>注意：</p> <p>方法必须先定义再调用否则程序将报错</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>2.3 方法的调用过程</h3> <div class="ay1code"> <pre class="brush:java;"> public class MethodDemo {     	public static void main(String[] args) {  		//调用方法  		isEvenNumber();  		  	}  	  		//需求定义一个方法，在方法中定义一个变量，判断数据是否是偶数  	public static void isEvenNumber() {  		//定义变量  		int number = 10;  		//判断改数据是否为偶数  		if(number%2==0){  			System.out.println("该数据为偶数");  			}else{  			System.out.println("该数据为奇数");	  		}  	  	}     }</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>2.4 方法练习</h3> <p>需求，设计一个方法用来打印两个数中的最大数</p> <p>代码示例：</p> <div class="ay1code"> <pre class="brush:java;"> public class text072 {     	public static void main(String[] args) {  		isMaxNumber();     	}  	public static void isMaxNumber() {  		int a=9;  		int b=55;  		if (a&gt;b){  			System.out.println("max为"+a);  		}else{  			System.out.println("max为"+b);  		}  		  	}     }</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.带参数方法的定义和调用</h2> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <h3>3.1带参数方法定义</h3> <p>格式：</p> <blockquote> <p>public static void 方法名（参数）{... ...}</p> </blockquote> <p>格式（单个参数）：</p> <blockquote> <p>public static void 方法名（数据类型  变量名）{... ...}</p> </blockquote> <p>范例（单个参数）：</p> <blockquote> <p>public static void isEvenNumber（int  number）{... ...}</p> </blockquote> <p>格式（多个参数）：</p> <blockquote> <p>public static void 方法名（数据类型  变量名,数据类型 变量名2,,.....）{... ...}</p> </blockquote> <p>范例（单个参数）：</p> <blockquote> <p>public static void isEvenNumber（int  number1, int number2,......）{... ...}</p> </blockquote> <p>注意：</p> <p>1.方法定义时，参数中的数据类型和变量名一个都不能少，缺少任一程序报错</p> <p>2.方法定义时，多个参数之间使用英文逗号隔开</p> <p class="maodian"><a name="_lab2_2_5" rel="nofollow"></a></p> <h3>3.2带参数方法调用</h3> <p>格式：</p> <blockquote> <p>方法名（参数）；</p> </blockquote> <p>格式（单个参数）：</p> <blockquote> <p>方法名（变量名/常量值）;</p> </blockquote> <p>范例：</p> <blockquote> <p>isNumber（5）;</p> </blockquote> <p>格式（多个参数）;</p> <blockquote> <p>方法名（变量名1/常量值1,变量名2/常量值2）;</p> </blockquote> <p>范例：</p> <blockquote> <p>getMax（5,9）;</p> </blockquote> <p>注意：参数的数量与类型必须与方法定义中的设置相匹配，否则程序报错</p> <p>示例代码：定义一个方法，该方法接收一个参数，判断该数据是否为偶数</p> <div class="ay1code"> <pre class="brush:java;">public class text073 {     	public static void main(String[] args) {  		//常量值调用  		isEvenNumber(5);  		//变量的调用  		int number =10 ;  		isEvenNumber(number);     	}  	public static void  isEvenNumber(int number) {  		if(number%2==0){  			System.out.println("true");  		}else{  			System.out.println("false");  		}  	}  }</pre> </div> <p>后续内容明天更新，喜欢的可以点个关注，谢谢！</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-64473.htm">Java设计模式——单例设计模式(八种实例)</a></p>
+                                        <p>下一个：<a href="/news/article-65090.htm">动物注射疫苗简报怎么写范文大全（给动物打疫苗的简报）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -114,16 +115,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-42886.htm" title="猫喜欢靠近有灵气的人（猫喜欢靠近有灵气的人的寓意）">猫喜欢靠近有灵气的人（猫喜欢靠近有灵气的人的寓意）</a></li>
-                        <li class="py-2"><a href="/news/article-42385.htm" title="css解决高度自适应问题（使用flex）">css解决高度自适应问题（使用flex）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-node-subscribe-links.htm" title="1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址">1月16日最新免费节点 | 20.7M/S|2025年V2ray/SSR/Shadowrocket/Clash订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-13-clash-v2ray-ss-ssr.htm" title="1月13日最新免费节点 | 20.9M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址">1月13日最新免费节点 | 20.9M/S|2025年Clash/SSR/V2ray/Shadowrocket订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-60852.htm" title="幼猫一定要跟人睡不然就一直叫是为什么（幼猫为啥想跟着人睡觉）">幼猫一定要跟人睡不然就一直叫是为什么（幼猫为啥想跟着人睡觉）</a></li>
-                        <li class="py-2"><a href="/news/article-61456.htm" title="纯手工宠物零食推荐（手工 宠物）">纯手工宠物零食推荐（手工 宠物）</a></li>
-                        <li class="py-2"><a href="/news/article-40890.htm" title="IDEA启动：Internal error. Please refer to https://jb.gg/ide/critical-startup-errors">IDEA启动：Internal error. Please refer to https://jb.gg/ide/critical-startup-errors</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-subscribe-node.htm" title="1月20日最新免费节点 | 21.7M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址">1月20日最新免费节点 | 21.7M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-59134.htm" title="学校门口暴利生意（学校门口暴利生意农业大楼）">学校门口暴利生意（学校门口暴利生意农业大楼）</a></li>
-                        <li class="py-2"><a href="/news/article-50902.htm" title="南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）">南京宠物狗领养地址在哪里呀（南京宠物狗领养地址在哪里呀最近）</a></li>
+                        <li class="py-2"><a href="/news/article-38439.htm" title="python数据可视化-matplotlib入门(5)-饼图和堆叠图">python数据可视化-matplotlib入门(5)-饼图和堆叠图</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-free-clash-subscribe.htm" title="2月6日最新免费节点 | 21.5M/S|2025年SSR/Shadowrocket/Clash/V2ray订阅链接地址">2月6日最新免费节点 | 21.5M/S|2025年SSR/Shadowrocket/Clash/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45871.htm" title="宠物医院的审批流程是什么（宠物医院申请条件）">宠物医院的审批流程是什么（宠物医院申请条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-clash-windows.htm" title="2月5日最新免费节点 | 19.7M/S|2025年V2ray/Clash/Shadowrocket/SSR订阅链接地址">2月5日最新免费节点 | 19.7M/S|2025年V2ray/Clash/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-node-subscribe-links.htm" title="1月27日最新免费节点 | 18.1M/S|2025年Shadowrocket/SSR/Clash/V2ray订阅链接地址">1月27日最新免费节点 | 18.1M/S|2025年Shadowrocket/SSR/Clash/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-65092.htm" title="同安有哪些宠物医院比较好 同安有哪些宠物医院比较好的">同安有哪些宠物医院比较好 同安有哪些宠物医院比较好的</a></li>
+                        <li class="py-2"><a href="/news/article-48267.htm" title="vue生命周期 钩子函数">vue生命周期 钩子函数</a></li>
+                        <li class="py-2"><a href="/news/article-48268.htm" title="宠物用品批发进货渠道宠物用品优选倔强的尾巴（宠物用品批发商）">宠物用品批发进货渠道宠物用品优选倔强的尾巴（宠物用品批发商）</a></li>
+                        <li class="py-2"><a href="/news/article-57993.htm" title="Spring Cloud入门-Config分布式配置中心(Hoxton版本)">Spring Cloud入门-Config分布式配置中心(Hoxton版本)</a></li>
+                        <li class="py-2"><a href="/news/article-59706.htm" title="Vue3+Element plus项目搭建">Vue3+Element plus项目搭建</a></li>
                     </ul>
     </div>
 </div>
@@ -134,6 +135,9 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
