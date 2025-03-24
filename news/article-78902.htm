@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-78902.htm" />
+    <meta charset="utf-8">
+    <title>Python 认识列表和元组</title>
+        <meta name="description" content="列表和元组，都是一个可以放置任何数据类型的有序集合。   列表的特性 动态的（mutable）：长度大小不固定，可以随意地增加、删减或者改变元素。 会修改原来列表中的元素，而不会创建新的列表。 # 新" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-78902.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="Python 认识列表和元组" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/22b8aa80b8beac9642f3a3afdb383cd4.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:47:11" />
+    <meta property="og:updated_time" content="2025-03-22T08:47:11" />
+        <meta property="og:description" content="列表和元组，都是一个可以放置任何数据类型的有序集合。   列表的特性 动态的（mutable）：长度大小不固定，可以随意地增加、删减或者改变元素。 会修改原来列表中的元素，而不会创建新的列表。 # 新" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python 认识列表和元组">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Python 认识列表和元组</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h4> <a id="_0" rel="nofollow"></a><strong>列表和元组，都是一个可以放置任何数据类型的有序集合。</strong><br /> </h4> <h2> <a id="_2" rel="nofollow"></a>列表的特性</h2> <p>动态的（mutable）：长度大小不固定，可以随意地增加、删减或者改变元素。<br /> 会修改原来列表中的元素，而不会创建新的列表。</p> <pre><code class="prism language-python"><span class="token comment"># 新建一个列表</span> l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span> <span class="token comment"># 输出列表</span> l <span class="token comment"># 显示内容</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">]</span>  <span class="token comment"># 访问列表元素</span> l<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span> <span class="token comment"># 列表允许访问第4个元素，并修改</span> <span class="token comment"># 输出列表</span> l <span class="token comment"># 显示内容</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>  <span class="token comment"># 添加元素</span> l<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment"># 把元素5 添加到列表后面</span> <span class="token comment"># 输出列表</span> l <span class="token comment"># 显示内容</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> </code></pre> <h2> <a id="_30" rel="nofollow"></a>元组的特性</h2> <p>静态的（immutable）：长度大小固定，无法增加删减或者改变。<br /> 若要改变元组内的数据，只能新开一块内存，新建一个元组。</p> <pre><code class="prism language-python"><span class="token comment"># 新建一个元组</span> tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'jason'</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span> <span class="token comment"># 输出元组</span> tup <span class="token comment"># 显示内容</span> <span class="token punctuation">(</span><span class="token string">'jason'</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span>  <span class="token comment"># 不能对元组直接操作，需要新建一个新元组</span> net_tup <span class="token operator">=</span> tup <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token comment"># 创建新的元组new_tup 后，以此填充元素，新增元素后的',' 不可以省略</span> <span class="token comment"># 输出元组</span> net_tup <span class="token comment"># 显示内容</span> <span class="token punctuation">(</span><span class="token string">'jason'</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> </code></pre> <h2> <a id="_49" rel="nofollow"></a>两者支持的操作</h2> <h3> <a id="_50" rel="nofollow"></a>负数索引</h3> <p>列表和元组都支持负数索引，-1 表示倒数第一个元素，-2 表示倒数第二个，以此类推。</p> <pre><code class="prism language-python">l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> l<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment"># 列表的负数索引</span> <span class="token comment"># 显示内容</span> <span class="token number">5</span>  tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'jason'</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span> tup<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment"># 元组的负数索引</span> <span class="token comment"># 显示内容</span> <span class="token number">22</span> </code></pre> <h3> <a id="_64" rel="nofollow"></a>切片操作</h3> <p>切片操作指的是，输出规定范围内 [start : end]的所有元素，但不包含最后一位。<br /> 例如 [0:3] 就是从下标0 开始，一直输出到下标2（3-1） 。</p> <pre><code class="prism language-python">l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span> l<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token comment"># 列表的切片操作</span> <span class="token comment"># 显示内容</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'hello'</span><span class="token punctuation">]</span>  tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'jason'</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span> tup<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment"># 元组的切片操作</span> <span class="token comment"># 显示内容</span> <span class="token punctuation">(</span><span class="token string">'jason'</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span> </code></pre> <h3> <a id="_80" rel="nofollow"></a>随意嵌套</h3> <pre><code class="prism language-python">new_l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token comment"># 嵌套列表</span> new_l <span class="token comment"># 显示内容</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span>  new_tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># 嵌套元组</span> new_tup <span class="token comment"># 显示内容</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <h3> <a id="_94" rel="nofollow"></a>相互转换</h3> <pre><code class="prism language-python"><span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment"># list() 函数把元组转化成列表</span> <span class="token builtin">tuple</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment"># tuple() 函数把列表转化成元组</span> </code></pre> <h2> <a id="_101" rel="nofollow"></a>常用内置函数</h2> <p>count(item) 统计列表 / 元组中 item 出现的次数</p> <ul> <li>index(item) 返回列表 / 元组中 item 第一次出现的索引</li> <li>list.reverse() and list.sort() 只能对列表应用 <ul> <li>list.reverse() 原地倒转列表</li> <li>list.sort() 排序</li> </ul> </li> <li>reversed() and sorted() <ul> <li>reversed() 对列表 / 元组进行倒转 <ul> <li>返回一个倒转后的迭代器，使用list() 将其转换成列表</li> </ul> </li> <li>sorted() 对列表 / 元组进行排序 <ul> <li>返回排好序的新列表</li> </ul> </li> </ul> </li> </ul> <h3> <a id="_113" rel="nofollow"></a>存储方式的差异</h3> <pre><code class="prism language-python">l <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> l<span class="token punctuation">.</span>__sizeof__<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token number">64</span>  tup <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> tup<span class="token punctuation">.</span>__sizeof__<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token number">48</span> </code></pre> <p>存储同样的内容，列表却比元组多用了16字节。</p> <ol> <li>列表是动态，需要指针来指向对应的元素。</li> <li>列表它可变，需要额外存储已经分配的长度大小，追踪列表空间使用的情况，当空间不足时，可以及时分配额外空间。</li> <li>存储指针的空间长度的存储空间各为8 字节。</li> </ol> <p>列表初始空间是：40，添加字符后会扩展4个元素的空间：32，所以是：72字节。当需要存储的元素空间大于存储空间时，列表会新增4个元素的空间：32。</p> <p>这样的增加 / 删减操作机制（over-allocating）保证了其操作的有效性，增加 / 删减的时间复杂度均为O（1）</p> <h3> <a id="_134" rel="nofollow"></a>性能对比</h3> <p>元组比列表更加轻量级一些，从总体来讲，<strong>元组的性能速度要略优于列表</strong>。</p> <p>Python 会在后台对静态数据做一些资源缓存（resource caching）<br /> 垃圾回收机制，当一些变量不被使用了，Python 就会回收它们所占用的内存，返还给操作系统，以便其他变量或其他应用使用。<br /> 但元组不被使用并且占用空间不大时，Python 会暂时缓存这一部分。下次调用时，Python 会直接用这块缓存的内存空间，大大加快程序的运行速度。</p> <p>初始化一个相同元素的列表和元组，元组的速度比列表快5倍。<br /> 索引操作，两者速度差别非常小，几乎可以忽略不计。<br /> 增加 / 删减或改变元素，列表更优。元组需要新建一个元组。</p> <p>两者的使用场景</p> <ol> <li>存储的数据和数量不变，选用元组合适。</li> <li>存储的数据或数量是可变的，选择列表更合适。</li> </ol> <h3> <a id="_149" rel="nofollow"></a>总结</h3> <p><strong>列表和元组都是有序，可以存储任何数据类型的集合。<br /> 区别：<br /> 列表是动态，长度可变。可以增加、删除、修改元素，存储空间略大于元组，性能略逊于元组。<br /> 元组是静态的，长度固定。不可以对元素进行操作，元组对于列表来说更加轻量级，性能稍优。</strong></p> <hr/> <h3> <a id="_157" rel="nofollow"></a>提问：两个创建空列表的方法，哪个更快。</h3> <pre><code class="prism language-python"><span class="token comment"># option A</span> empty_list <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># option B</span> empty_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> </code></pre> <p>自答：我认为option B 更快一些，它直接创建了一个空列表。但option A 是通过list() 进行转换的。</p> <p>解答：[ ] 是一个内置的C 函数，直接被调用。而list 是一个function call，Python 的function call 会创建stack，并且进行一系列参数检查的操作，比较expensive。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78205.htm">动物疫苗使用方法 动物疫苗使用方法视频</a></p>
+                                        <p>下一个：<a href="/news/article-78903.htm">MySQL 表数据多久刷一次盘</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-clash-windows.htm" title="2月24日最新免费节点 | 22.3M/S|2025年SSR/Clash/Shadowrocket/V2ray订阅链接地址">2月24日最新免费节点 | 22.3M/S|2025年SSR/Clash/Shadowrocket/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-52998.htm" title="jdbc中PreparedStatment通用增删改查">jdbc中PreparedStatment通用增删改查</a></li>
+                        <li class="py-2"><a href="/news/article-70175.htm" title="宠物猫疫苗多少钱打一次啊（宠物猫疫苗大概多少钱）">宠物猫疫苗多少钱打一次啊（宠物猫疫苗大概多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-28-node-share.htm" title="2月28日最新免费节点 | 18.6M/S|2025年Clash/V2ray/Shadowrocket/SSR订阅链接地址">2月28日最新免费节点 | 18.6M/S|2025年Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-65704.htm" title="动物疫苗业务员能挣多少（动物疫苗经营）">动物疫苗业务员能挣多少（动物疫苗经营）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-high-speed-nodes.htm" title="2月16日最新免费节点 | 20.2M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址">2月16日最新免费节点 | 20.2M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-71486.htm" title="宠物粮食市场前景分析论文题目怎么写（宠物粮调研）">宠物粮食市场前景分析论文题目怎么写（宠物粮调研）</a></li>
+                        <li class="py-2"><a href="/news/article-39917.htm" title="动物医院大众点评100字通用评论怎么写的 动物医院大众点评100字通用评论怎么写的啊">动物医院大众点评100字通用评论怎么写的 动物医院大众点评100字通用评论怎么写的啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-subscribe-node.htm" title="1月20日最新免费节点 | 21.7M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址">1月20日最新免费节点 | 21.7M/S|2025年Shadowrocket/Clash/V2ray/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40397.htm" title="被猫咬出血了一定要***吗要多少钱（被猫咬出血要***么）">被猫咬出血了一定要***吗要多少钱（被猫咬出血要***么）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p>
+                            <a href="/">首页</a> |
+                            <a href="/free-node/">免费节点</a> |
+                            <a href="/news/">新闻资讯</a> |
+                            <a href="/about-us.htm">关于我们</a> |
+                            <a href="/disclaimer.htm">免责申明</a> |
+                            <a href="/privacy.htm">隐私申明</a> |
+                            <a href="/sitemap.xml">网站地图</a>
+                        </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
