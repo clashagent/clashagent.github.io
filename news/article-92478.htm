@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-92478.htm" />
+    <meta charset="utf-8">
+    <title>一个Shell小脚本精准统计Mysql每张表的行数实现</title>
+        <meta name="description" content="前言 对于开发或者运维人员来说，Mysql数据库每张表的数量肯定是要了解下，有助于我们清理无用数据或者了解哪张表比较占用空间。 另外多次统计表的行数，还能发现Mysql表的增量情况，能够预测表未来会有" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-92478.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="一个Shell小脚本精准统计Mysql每张表的行数实现" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/5d65960db21d4cb8dd5954a92d1f6e46.webp" />
+        <meta property="og:release_date" content="2025-04-10T08:16:15" />
+    <meta property="og:updated_time" content="2025-04-10T08:16:15" />
+        <meta property="og:description" content="前言 对于开发或者运维人员来说，Mysql数据库每张表的数量肯定是要了解下，有助于我们清理无用数据或者了解哪张表比较占用空间。 另外多次统计表的行数，还能发现Mysql表的增量情况，能够预测表未来会有" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一个Shell小脚本精准统计Mysql每张表的行数实现">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">一个Shell小脚本精准统计Mysql每张表的行数实现</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>前言<br /> 对于开发或者运维人员来说，Mysql数据库每张表的数量肯定是要了解下，有助于我们清理无用数据或者了解哪张表比较占用空间。<br /> 另外多次统计表的行数，还能发现Mysql表的增量情况，能够预测表未来会有多大的量。<br /> 废话不多说，直接带大家写一个简单的Shell小脚本</p> <p>循环获取数据库名</p> <p>直接上Shell代码，show databases获取所有的库名。结果有一个我们不想要的，就是Database，这个grep -v掉，轻松获取所有数据库</p> <p>1<br /> 2<br /> 3<br /> 4<br /> 5<br /> 6<br /> 7<br /> 8<br /> 9<br /> 10<br /> 11<br /> [root@it.net.cn ~]# mysql -h 127.0.0.1 -uxxx -pxxx -e “show databases;” 2&gt;/dev/null<br /> ±-------------------+<br /> | Database |<br /> ±-------------------+<br /> | information_schema |<br /> | mysql |<br /> | performance_schema |<br /> | shijiange |<br /> | test |<br /> | wordpress |<br /> ±-------------------+<br /> 1<br /> 2<br /> 3<br /> 4<br /> 5<br /> 6<br /> 7<br /> [root@it.net.cn ~]# mysql -h 127.0.0.1 -uxxx -pxxx -e “show databases;” 2&gt;/dev/null |grep -v Database<br /> information_schema<br /> mysql<br /> performance_schema<br /> shijiange<br /> test<br /> wordpress<br /> 循环获取所有表<br /> 有了库信息，获取所有表就简单了，直接上Shell代码。show tables获取所有表名，其中Tables_in不需要，grep -v掉。</p> <p>[root@it.net.cn ~]# for onedb in $(mysql -h 127.0.0.1 -uxxx -pxxx -e “show databases;” 2&gt;/dev/null |grep -v Database);do</p> <blockquote> <p>echo $onedbhttp://groups.tianya.cn/post-191232-f761b4c7ee5641a9b57d24bb68d596b3-1.shtml<br /> mysql -h 127.0.0.1 -uxxx -pxxx $onedb -e “show tables” 2&gt;/dev/null<br /> done<br /> information_schema<br /> ±--------------------------------------+<br /> | Tables_in_information_schema |<br /> ±--------------------------------------+<br /> | CHARACTER_SETS |<br /> | COLLATIONS |<br /> | COLLATION_CHARACTER_SET_APPLICABILITY |<br /> | COLUMNS |<br /> | COLUMN_PRIVILEGES |<br /> | ENGINES |<br /> | EVENTS |<br /> | FILES |<br /> | GLOBAL_STATUS |<br /> | GLOBAL_VARIABLES |<br /> | KEY_COLUMN_USAGE |<br /> 循环统计每张表的行数<br /> 取出库名加表名，一个select count(1)统计表的行数，循环统计，直接上Shell代码。</p> </blockquote> <p>[root@it.net.cn ~]# for onedb in $(mysql -h 127.0.0.1 -uxxx -pxxx -e “show databases;” 2&gt;/dev/null |grep -v Database);do</p> <blockquote> <p>for onetab in $(mysql -h 127.0.0.1 -uxxx -pxxx <span class="katex--inline">KaTeX parse error: Expected group after '_' at position 55: …p -v 'Tables_in_̲');dohttp://gro…</span>(mysql -h 127.0.0.1 -uxxx -pxxx $onedb -e “select count(1) from <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>         o</p> <p>         n</p> <p>         e</p> <p>         t</p> <p>         a</p> <p>         b</p> <p>         "</p> <p>         2</p> <p>         &gt;</p> <p>         /</p> <p>         d</p> <p>         e</p> <p>         v</p> <p>         /</p> <p>         n</p> <p>         u</p> <p>         l</p> <p>         l</p> <p>         ∣</p> <p>         g</p> <p>         r</p> <p>         e</p> <p>         p</p> <p>         −</p> <p>          v</p> <p>          ′</p> <p>         c</p> <p>         o</p> <p>         u</p> <p>         n</p> <p>          t</p> <p>          ′</p> <p>         )</p> <p>         e</p> <p>         c</p> <p>         h</p> <p>         o</p> <p>         −</p> <p>         e</p> <p>         "</p> <p>        onetab" 2&gt;/dev/null |grep -v 'count') echo -e "</p> <p>     </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.73354em; vertical-align: -0.0391em;"></span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord">"</span><span class="mord">2</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">/</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right: 0.03588em;">v</span><span class="mord">/</span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right: 0.03588em;">g</span><span class="mord mathdefault" style="margin-right: 0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1.00189em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.751892em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.751892em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.69444em; vertical-align: 0em;"></span><span class="mord mathdefault">e</span><span class="mord">"</span></span></span></span></span>onedb.<span class="katex--inline">KaTeX parse error: Undefined control sequence: \t at position 7: onetab\̲t̲</span>onetablength”<br /> done<br /> done<br /> information_schema.CHARACTER_SETS 40<br /> information_schema.COLLATIONS 219<br /> information_schema.COLLATION_CHARACTER_SET_APPLICABILITY 219<br /> information_schema.COLUMNS 1789<br /> information_schema.COLUMN_PRIVILEGES 0<br /> shijiange.logincount 4<br /> shijiange.member 0<br /> shijiange.user 2097153<br /> test.detect_servers 0<br /> wordpress.wp_commentmeta 0<br /> wordpress.wp_comments 0<br /> wordpress.wp_links 0<br /> wordpress.wp_options 156<br /> 变量化，脚本直接用<br /> 需要统计哪个Mysql，前面三个变量一改，立马就能统计所有表的大小了。</p> </blockquote> <p>mysqlhost=127.0.0.1<br /> mysqluser=xxx<br /> mysqlpassword=xxx</p> <p>for onedb in $(mysql -h <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>        m</p> <p>        y</p> <p>        s</p> <p>        q</p> <p>        l</p> <p>        h</p> <p>        o</p> <p>        s</p> <p>        t</p> <p>        −</p> <p>        u</p> <p>       mysqlhost -u</p> <p>    </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right: 0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right: 0.03588em;">q</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">u</span></span></span></span></span>mysqluser -p$mysqlpassword -e “show databases;” 2&gt;/dev/null |grep -v Database);do<br /> for onetab in $(mysql -h <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>        m</p> <p>        y</p> <p>        s</p> <p>        q</p> <p>        l</p> <p>        h</p> <p>        o</p> <p>        s</p> <p>        t</p> <p>        −</p> <p>        u</p> <p>       mysqlhost -u</p> <p>    </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right: 0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right: 0.03588em;">q</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">u</span></span></span></span></span>mysqluser -p$mysqlpassword <span class="katex--inline">KaTeX parse error: Expected group after '_' at position 131: …p -v 'Tables_in_̲');do onetabl…</span>(mysql -h <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>        m</p> <p>        y</p> <p>        s</p> <p>        q</p> <p>        l</p> <p>        h</p> <p>        o</p> <p>        s</p> <p>        t</p> <p>        −</p> <p>        u</p> <p>       mysqlhost -u</p> <p>    </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right: 0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right: 0.03588em;">q</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">u</span></span></span></span></span>mysqluser -p$mysqlpassword $onedb -e “select count(1) from <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>        o</p> <p>        n</p> <p>        e</p> <p>        t</p> <p>        a</p> <p>        b</p> <p>        "</p> <p>        2</p> <p>        &gt;</p> <p>        /</p> <p>        d</p> <p>        e</p> <p>        v</p> <p>        /</p> <p>        n</p> <p>        u</p> <p>        l</p> <p>        l</p> <p>        ∣</p> <p>        g</p> <p>        r</p> <p>        e</p> <p>        p</p> <p>        −</p> <p>         v</p> <p>         ′</p> <p>        c</p> <p>        o</p> <p>        u</p> <p>        n</p> <p>         t</p> <p>         ′</p> <p>        )</p> <p>        e</p> <p>        c</p> <p>        h</p> <p>        o</p> <p>        −</p> <p>        e</p> <p>        "</p> <p>       onetab" 2&gt;/dev/null |grep -v 'count') echo -e "</p> <p>    </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.73354em; vertical-align: -0.0391em;"></span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord">"</span><span class="mord">2</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">/</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right: 0.03588em;">v</span><span class="mord">/</span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right: 0.03588em;">g</span><span class="mord mathdefault" style="margin-right: 0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1.00189em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.751892em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.751892em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.69444em; vertical-align: 0em;"></span><span class="mord mathdefault">e</span><span class="mord">"</span></span></span></span></span>onedb.<span class="katex--inline">KaTeX parse error: Undefined control sequence: \t at position 7: onetab\̲t̲</span>onetablength”<br /> done<br /> done<br /> 想看哪张表的行数最多？<br /> 之前的脚本加个 |sort -nrk 2|less 搞定，超实用的小脚本就这样完成了</p> <p>[root@it.net.cn ~]# for onedb in $(mysql -h <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>        m</p> <p>        y</p> <p>        s</p> <p>        q</p> <p>        l</p> <p>        h</p> <p>        o</p> <p>        s</p> <p>        t</p> <p>        −</p> <p>        u</p> <p>       mysqlhost -u</p> <p>    </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right: 0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right: 0.03588em;">q</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">u</span></span></span></span></span>mysqluser -p$mysqlpassword -e “show databases;” 2&gt;/dev/null |grep -v Database);do</p> <blockquote> <p>for onetab in $(mysql -h <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>         m</p> <p>         y</p> <p>         s</p> <p>         q</p> <p>         l</p> <p>         h</p> <p>         o</p> <p>         s</p> <p>         t</p> <p>         −</p> <p>         u</p> <p>        mysqlhost -u</p> <p>     </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right: 0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right: 0.03588em;">q</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">u</span></span></span></span></span>mysqluser -p$mysqlpassword <span class="katex--inline">KaTeX parse error: Expected group after '_' at position 55: …p -v 'Tables_in_̲');do onetabl…</span>(mysql -h <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>         m</p> <p>         y</p> <p>         s</p> <p>         q</p> <p>         l</p> <p>         h</p> <p>         o</p> <p>         s</p> <p>         t</p> <p>         −</p> <p>         u</p> <p>        mysqlhost -u</p> <p>     </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.88888em; vertical-align: -0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault" style="margin-right: 0.03588em;">y</span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right: 0.03588em;">q</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">u</span></span></span></span></span>mysqluser -p$mysqlpassword $onedb -e “select count(1) from <span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>         o</p> <p>         n</p> <p>         e</p> <p>         t</p> <p>         a</p> <p>         b</p> <p>         "</p> <p>         2</p> <p>         &gt;</p> <p>         /</p> <p>         d</p> <p>         e</p> <p>         v</p> <p>         /</p> <p>         n</p> <p>         u</p> <p>         l</p> <p>         l</p> <p>         ∣</p> <p>         g</p> <p>         r</p> <p>         e</p> <p>         p</p> <p>         −</p> <p>          v</p> <p>          ′</p> <p>         c</p> <p>         o</p> <p>         u</p> <p>         n</p> <p>          t</p> <p>          ′</p> <p>         )</p> <p>         e</p> <p>         c</p> <p>         h</p> <p>         o</p> <p>         −</p> <p>         e</p> <p>         "</p> <p>        onetab" 2&gt;/dev/null |grep -v 'count') echo -e "</p> <p>     </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.73354em; vertical-align: -0.0391em;"></span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">b</span><span class="mord">"</span><span class="mord">2</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">/</span><span class="mord mathdefault">d</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right: 0.03588em;">v</span><span class="mord">/</span><span class="mord mathdefault">n</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord mathdefault" style="margin-right: 0.01968em;">l</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right: 0.03588em;">g</span><span class="mord mathdefault" style="margin-right: 0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1.00189em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.03588em;">v</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.751892em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">u</span><span class="mord mathdefault">n</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.751892em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.69444em; vertical-align: 0em;"></span><span class="mord mathdefault">e</span><span class="mord">"</span></span></span></span></span>onedb.<span class="katex--inline">KaTeX parse error: Undefined control sequence: \t at position 7: onetab\̲t̲</span>onetablength”<br /> done<br /> done | sort -nrk 2<br /> shijiange.user 2097153<br /> information_schema.INNODB_BUFFER_PAGE 8191<br /> performance_schema.events_waits_summary_by_thread_by_event_name 5320<br /> information_schema.INNODB_BUFFER_PAGE_LRU 3453</p> </blockquote></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-91771.htm">上海宠物领养日期查询官网（上海宠物狗领养网站）</a></p>
+                                        <p>下一个：<a href="/news/article-92480.htm">宠物粮食上市公司龙头股票 宠物粮食上市公司龙头股票有哪些</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-83773.htm" title="济南美联众合动物医院怎么样知乎推荐（美联众合动物医院地址）">济南美联众合动物医院怎么样知乎推荐（美联众合动物医院地址）</a></li>
+                        <li class="py-2"><a href="/news/article-68239.htm" title="同安宠物猫店地址（同安宠物猫店地址查询）">同安宠物猫店地址（同安宠物猫店地址查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-free-node-subscribe-links.htm" title="3月19日最新免费节点 | 20.4M/S|2025年SSR/V2ray/Shadowrocket/Clash订阅链接地址">3月19日最新免费节点 | 20.4M/S|2025年SSR/V2ray/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-92480.htm" title="宠物粮食上市公司龙头股票 宠物粮食上市公司龙头股票有哪些">宠物粮食上市公司龙头股票 宠物粮食上市公司龙头股票有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-66965.htm" title="C语言 推理证明带环链表详细过程_C 语言">C语言 推理证明带环链表详细过程_C 语言</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-node-share.htm" title="3月5日最新免费节点 | 21.9M/S|2025年V2ray/Shadowrocket/Clash/SSR订阅链接地址">3月5日最新免费节点 | 21.9M/S|2025年V2ray/Shadowrocket/Clash/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-node-subscribe-links.htm" title="4月6日最新免费节点 | 21.2M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址">4月6日最新免费节点 | 21.2M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81647.htm" title="猫咪驱虫做到几岁（猫咪驱虫几岁开始）">猫咪驱虫做到几岁（猫咪驱虫几岁开始）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-free-high-speed-nodes.htm" title="3月21日最新免费节点 | 19.6M/S|2025年SSR/V2ray/Shadowrocket/Clash订阅链接地址">3月21日最新免费节点 | 19.6M/S|2025年SSR/V2ray/Shadowrocket/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-76835.htm" title="动物医院的名字有哪些好听（动物医院名字大气）">动物医院的名字有哪些好听（动物医院名字大气）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
