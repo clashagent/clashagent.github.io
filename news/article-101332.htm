@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-101332.htm" />
+    <meta charset="utf-8">
+    <title>Swagger在SpringBoot中的的一些详细配置</title>
+        <meta name="description" content="搭建环境 参考Swagger在SpringBoot的简单使用  注意 Swagger是基于Docker的，所以下面的配置全是Docker相关  配置Swagger的UI界面中的一些信息 package" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-101332.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="Swagger在SpringBoot中的的一些详细配置" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/5d65960db21d4cb8dd5954a92d1f6e46.webp" />
+        <meta property="og:release_date" content="2025-04-22T08:22:21" />
+    <meta property="og:updated_time" content="2025-04-22T08:22:21" />
+        <meta property="og:description" content="搭建环境 参考Swagger在SpringBoot的简单使用  注意 Swagger是基于Docker的，所以下面的配置全是Docker相关  配置Swagger的UI界面中的一些信息 package" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Swagger在SpringBoot中的的一些详细配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Swagger在SpringBoot中的的一些详细配置</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> 搭建环境</h2> <p>参考Swagger在SpringBoot的简单使用</p> <h2> 注意</h2> <p>Swagger是基于Docker的，所以下面的配置全是Docker相关</p> <h2> 配置Swagger的UI界面中的一些信息</h2> <pre><code class="prism language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>config<span class="token punctuation">;</span>  <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Bean<span class="token punctuation">;</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>service<span class="token punctuation">.</span>ApiInfo<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>service<span class="token punctuation">.</span>Contact<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>spi<span class="token punctuation">.</span>DocumentationType<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>spring<span class="token punctuation">.</span>web<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span>Docket<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>swagger2<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span>EnableSwagger2<span class="token punctuation">;</span>  <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>   <span class="token annotation punctuation">@Configuration</span> <span class="token annotation punctuation">@EnableSwagger2</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SwaggerConfig</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Bean</span>     <span class="token keyword">public</span> Docket <span class="token function">docket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Docket</span><span class="token punctuation">(</span>DocumentationType<span class="token punctuation">.</span>SWAGGER_2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token comment">//配置页面的一些相关介绍</span>     <span class="token annotation punctuation">@Bean</span>     <span class="token keyword">public</span> ApiInfo <span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//通过源码发现只有构造方法并没有set方法，所以只有构造方法能够注入</span>         Contact contact <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Contact</span><span class="token punctuation">(</span><span class="token string">"作者名字"</span><span class="token punctuation">,</span><span class="token string">"跟多相关链接"</span><span class="token punctuation">,</span><span class="token string">"邮箱"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//作者信息</span>         ApiInfo apiInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ApiInfo</span><span class="token punctuation">(</span>                                         <span class="token string">"api文档的标题"</span><span class="token punctuation">,</span> <span class="token string">"描述信息"</span><span class="token punctuation">,</span><span class="token string">"版本号"</span><span class="token punctuation">,</span><span class="token string">"服务条款的链接"</span><span class="token punctuation">,</span>                                         contact<span class="token punctuation">,</span><span class="token string">"许可证"</span><span class="token punctuation">,</span> <span class="token string">"许可证的链接"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                                     <span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> apiInfo<span class="token punctuation">;</span>      <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <h2> Swagger扫描指定接口</h2> <p><strong>RequestHandlerSelectors有几种扫描方式：</strong></p> <ol> <li>basePackage：指定包扫描<br /> 示范：<code>.apis(RequestHandlerSelectors.basePackage("com.example.swagger.controller"))</code> </li> <li>any:扫描该项目的所有请求链接<br /> 示例：<code>.apis(RequestHandlerSelectors.any())</code> </li> <li>none：所有请求链接都不扫描<br /> 示例：<code>.apis(RequestHandlerSelectors.none())</code> </li> <li>withClassAnnotation:通过类的注解扫描,就是类名上面的注释，可以是Controller，RestController,RequestMapping,GetMapping ,PostMapping等等<br /> 示例：<code>.apis(withClassAnnotation.)</code> </li> <li>withMethodAnnotation:通过方法的注解扫描，也就是方法上面的注解，可以是RequestMapping ,GetMapping ,PostMapping等等<br /> 示例：<code>.apis(RequestHandlerSelectors.withMethodAnnotation(RequestMapping.class))</code> </li> </ol> <pre><code class="prism language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>swagger<span class="token punctuation">.</span>config<span class="token punctuation">;</span>  <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Bean<span class="token punctuation">;</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Configuration<span class="token punctuation">;</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Controller<span class="token punctuation">;</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RequestMapping<span class="token punctuation">;</span> <span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RestController<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>builders<span class="token punctuation">.</span>RequestHandlerSelectors<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>service<span class="token punctuation">.</span>ApiInfo<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>service<span class="token punctuation">.</span>Contact<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>spi<span class="token punctuation">.</span>DocumentationType<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>spring<span class="token punctuation">.</span>web<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span>Docket<span class="token punctuation">;</span> <span class="token keyword">import</span> springfox<span class="token punctuation">.</span>documentation<span class="token punctuation">.</span>swagger2<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span>EnableSwagger2<span class="token punctuation">;</span>  <span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>   <span class="token annotation punctuation">@Configuration</span> <span class="token annotation punctuation">@EnableSwagger2</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SwaggerConfig</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Bean</span>     <span class="token keyword">public</span> Docket <span class="token function">docket</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Docket</span><span class="token punctuation">(</span>DocumentationType<span class="token punctuation">.</span>SWAGGER_2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                 <span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                 <span class="token comment">/*RequestHandlerSelectors有几种扫描方式：                     1.basePackage：指定包扫描                         示例：.apis(RequestHandlerSelectors.basePackage("com.example.swagger.controller"))                     2.any:扫描该项目的所有请求链接                         示例：.apis(RequestHandlerSelectors.any())                     3.none：所有请求链接都不扫描                         示例：.apis(RequestHandlerSelectors.none())                     4.withClassAnnotation:通过类的注解扫描,就是类名上面的注释                       可以是Controller，RestController,RequestMapping,GetMapping ,PostMapping等等                         示例：.apis(withClassAnnotation.)                     5.withMethodAnnotation:通过方法的注解扫描，也就是方法上面的注解                       可以是RequestMapping ,GetMapping ,PostMapping等等                         示例：.apis(RequestHandlerSelectors.withMethodAnnotation(RequestMapping.class))                      一般推荐第一种，其他作为了解即可                  */</span>                 <span class="token punctuation">.</span><span class="token function">apis</span><span class="token punctuation">(</span>RequestHandlerSelectors<span class="token punctuation">.</span><span class="token function">withClassAnnotation</span><span class="token punctuation">(</span>Controller<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                 <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//配置页面的一些相关介绍</span>     <span class="token annotation punctuation">@Bean</span>     <span class="token keyword">public</span> ApiInfo <span class="token function">apiInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//通过源码发现只有构造方法并没有set方法，所以只有构造方法能够注入</span>         Contact contact <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Contact</span><span class="token punctuation">(</span><span class="token string">"作者名字"</span><span class="token punctuation">,</span><span class="token string">"跟多相关链接"</span><span class="token punctuation">,</span><span class="token string">"邮箱"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//作者信息</span>         ApiInfo apiInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ApiInfo</span><span class="token punctuation">(</span>                                         <span class="token string">"api文档的标题"</span><span class="token punctuation">,</span> <span class="token string">"描述信息"</span><span class="token punctuation">,</span><span class="token string">"版本号"</span><span class="token punctuation">,</span><span class="token string">"服务条款的链接"</span><span class="token punctuation">,</span>                                         contact<span class="token punctuation">,</span><span class="token string">"许可证"</span><span class="token punctuation">,</span> <span class="token string">"许可证的链接"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>                                     <span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> apiInfo<span class="token punctuation">;</span>      <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-100689.htm">狗子免费领养（免费领养狗狗送到家是否可信）</a></p>
+                                        <p>下一个：<a href="/news/article-101333.htm">动物疫苗对人体有害吗（动物疫苗有没有毒）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-68881.htm" title="动物医院评价 好评 动物医院评价 好评语">动物医院评价 好评 动物医院评价 好评语</a></li>
+                        <li class="py-2"><a href="/news/article-82351.htm" title="动物医院收费标准相关规定最新文件是什么（动物医院的号码是多少）">动物医院收费标准相关规定最新文件是什么（动物医院的号码是多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-free-ssr-node.htm" title="3月25日最新免费节点 | 19.5M/S|2025年Shadowrocket/V2ray/SSR/Clash订阅链接地址">3月25日最新免费节点 | 19.5M/S|2025年Shadowrocket/V2ray/SSR/Clash订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-83772.htm" title="【Spring】——事务实现过程及原理">【Spring】——事务实现过程及原理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-subscribe-node.htm" title="3月24日最新免费节点 | 18.5M/S|2025年V2ray/Clash/SSR/Shadowrocket订阅链接地址">3月24日最新免费节点 | 18.5M/S|2025年V2ray/Clash/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-high-speed-nodes.htm" title="3月2日最新免费节点 | 19.1M/S|2025年Clash/V2ray/SSR/Shadowrocket订阅链接地址">3月2日最新免费节点 | 19.1M/S|2025年Clash/V2ray/SSR/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-93244.htm" title="宠物粮食店一年利润怎么样计算出来呢（宠物粮食店铺）">宠物粮食店一年利润怎么样计算出来呢（宠物粮食店铺）</a></li>
+                        <li class="py-2"><a href="/news/article-78204.htm" title="狗粮批发市场进货渠道在哪里（狗粮批发市场进货渠道在哪里啊）">狗粮批发市场进货渠道在哪里（狗粮批发市场进货渠道在哪里啊）</a></li>
+                        <li class="py-2"><a href="/news/article-83773.htm" title="济南美联众合动物医院怎么样知乎推荐（美联众合动物医院地址）">济南美联众合动物医院怎么样知乎推荐（美联众合动物医院地址）</a></li>
+                        <li class="py-2"><a href="/news/article-88811.htm" title="好忙的动物医院幼儿园教案（好忙的动物医院中班教案）">好忙的动物医院幼儿园教案（好忙的动物医院中班教案）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>

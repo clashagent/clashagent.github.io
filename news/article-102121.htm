@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-102121.htm" />
+    <meta charset="utf-8">
+    <title>java list在哪个包_Java 中初始化 List 集合的 N 种方式！</title>
+        <meta name="description" content="List 是 Java 开发中经常会使用的集合，你们知道有哪些方式可以初始化一个 List 吗？这其中不缺乏一些坑，在此总结一下常用的方式。 1、常规方式List&nbsp;languages&nbs" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-102121.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="java list在哪个包_Java 中初始化 List 集合的 N 种方式！" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/ebf4065a287e775a7fcb519d32403311.webp" />
+        <meta property="og:release_date" content="2025-04-23T08:42:31" />
+    <meta property="og:updated_time" content="2025-04-23T08:42:31" />
+        <meta property="og:description" content="List 是 Java 开发中经常会使用的集合，你们知道有哪些方式可以初始化一个 List 吗？这其中不缺乏一些坑，在此总结一下常用的方式。 1、常规方式List&nbsp;languages&nbs" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java list在哪个包_Java 中初始化 List 集合的 N 种方式！">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">java list在哪个包_Java 中初始化 List 集合的 N 种方式！</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>List 是 Java 开发中经常会使用的集合，你们知道有哪些方式可以初始化一个 List 吗？这其中不缺乏一些坑，在此总结一下常用的方式。</p> <p>1、常规方式List&nbsp;languages&nbsp;=&nbsp;new&nbsp;ArrayList&lt;&gt;();</p> <p>languages.add("Java");</p> <p>languages.add("PHP");</p> <p>languages.add("Python");</p> <p>System.out.println(languages);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;[Java,&nbsp;PHP,&nbsp;Python]</p> <p>这种就是我们平常用的最多最平常的方式了，没什么好说的，后面缺失的泛型类型在 JDK 7 之后就可以不用写具体的类型了，改进后会自动推断类型。</p> <p>2、Arrays 工具类List&nbsp;jdks&nbsp;=&nbsp;Arrays.asList("JDK6",&nbsp;"JDK8",&nbsp;"JDK10");</p> <p>System.out.println(jdks);&nbsp;&nbsp;&nbsp;//&nbsp;[JDK6,&nbsp;JDK8,&nbsp;JDK10]</p> <p>这种方式添加的是只读的，是不可变的 List，即不能添加、删除等操作，需要警惕。。</p> <p>如果要可变，那就使用 ArrayList 再包装一下，如下面所示。List&nbsp;numbers&nbsp;=&nbsp;new&nbsp;ArrayList&lt;&gt;(Arrays.asList("1",&nbsp;"2",&nbsp;"3"));</p> <p>numbers.add("4");</p> <p>System.out.println(numbers);</p> <p>包装一下，这就是可变的 ArrayList 了。</p> <p>3、Collections 工具类List&nbsp;apples&nbsp;=&nbsp;Collections.nCopies(3,&nbsp;"apple");</p> <p>System.out.println(apples);&nbsp;//&nbsp;[apple,&nbsp;apple,&nbsp;apple]</p> <p>这种方式添加的同样是只读的，是不可变的。</p> <p>老规则，如果要可变，使用 ArrayList 包装一遍。List&nbsp;dogs&nbsp;=&nbsp;new&nbsp;ArrayList&lt;&gt;(Collections.nCopies(3,&nbsp;"dog"));</p> <p>dogs.add("dog");</p> <p>System.out.println(dogs);</p> <p>还有初始化单个对象的 List 工具类，这种方式也是不可变的，集合内只能有一个元素，这种也用得很少啊。List&nbsp;cat&nbsp;=&nbsp;Collections.singletonList("cat");</p> <p>System.out.println(cat);</p> <p>还有设置集合为只读的。使用 unmodifiableList 方法。//&nbsp;使用&nbsp;Collections.unmodifiableList&nbsp;创建只读集合</p> <p>List&nbsp;list&nbsp;=&nbsp;new&nbsp;ArrayList&lt;&gt;();</p> <p>list.add("jack");</p> <p>list.add("tom");</p> <p>list.add("lily");</p> <p>List&nbsp;readList&nbsp;=&nbsp;Collections.unmodifiableList(list);</p> <p>4、匿名内部类List&nbsp;names&nbsp;=&nbsp;new&nbsp;ArrayList&lt;&gt;()&nbsp;{<!-- -->{<!-- --></p> <p>add("Tom");</p> <p>add("Sally");</p> <p>add("John");</p> <p>}};</p> <p>System.out.println(names);</p> <p>这种使用了匿名内部类的方式，一气喝成，是不是很高大上？看似高级，实现也没什么卵用。</p> <p>5、JDK8 StreamList&nbsp;colors&nbsp;=&nbsp;Stream.of("blue",&nbsp;"red",&nbsp;"yellow").collect(Collectors.toList());</p> <p>colors.add("beautiful");</p> <p>System.out.println(colors);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;[blue,&nbsp;red,&nbsp;yellow,&nbsp;beautiful]</p> <p>Stream 是 JDK 8 推出来的新概念，比集合还要更强大，还可以和集合互相转换。</p> <p>6、JDK 9 List.ofList&nbsp;cups&nbsp;=&nbsp;List.of("A",&nbsp;"B",&nbsp;"C");</p> <p>System.out.println(cups);</p> <p>这是 JDK 9 里面新增的 List 接口里面的静态方法，同样也是不可变的。</p> <p>7、Guava 工具包//&nbsp;使用&nbsp;Lists.newArrayList&nbsp;创建的集合非只读</p> <p>ArrayList&nbsp;list&nbsp;=&nbsp;Lists.newArrayList("java",&nbsp;"php",&nbsp;"javaScript",&nbsp;"h5",&nbsp;"jackson");</p> <p>//&nbsp;使用&nbsp;ImmutableList.of&nbsp;创建只读集合</p> <p>ImmutableList&nbsp;list&nbsp;=&nbsp;ImmutableList.of("jack",&nbsp;"tom",&nbsp;"lily");</p> <p>说到最后，还是 Guava 用的最爽，对于集合的控制也很多。</p> <p>更多内容，持续探索，你还知道哪些绝招呢？欢迎留言分享一下。。。。。。</p> </div></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-101333.htm">动物疫苗对人体有害吗（动物疫苗有没有毒）</a></p>
+                                        <p>下一个：<a href="/news/article-102122.htm">电话簿荣耀升级版</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-clash-subscribe.htm" title="3月16日最新免费节点 | 21.2M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址">3月16日最新免费节点 | 21.2M/S|2025年Shadowrocket/Clash/SSR/V2ray订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-94218.htm" title="数据库常用函数_在线工具">数据库常用函数_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-93246.htm" title="合肥哪里领养宠物狗（合肥哪里领养宠物狗比较好）">合肥哪里领养宠物狗（合肥哪里领养宠物狗比较好）</a></li>
+                        <li class="py-2"><a href="/news/article-101333.htm" title="动物疫苗对人体有害吗（动物疫苗有没有毒）">动物疫苗对人体有害吗（动物疫苗有没有毒）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-20-free-node-subscribe-links.htm" title="4月20日最新免费节点 | 18M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址">4月20日最新免费节点 | 18M/S|2025年V2ray/SSR/Clash/Shadowrocket订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66967.htm" title="长期养猫人容易得啥病（猫跟人睡在一起吸阳气）">长期养猫人容易得啥病（猫跟人睡在一起吸阳气）</a></li>
+                        <li class="py-2"><a href="/news/article-91083.htm" title="在小程序当中渲染树">在小程序当中渲染树</a></li>
+                        <li class="py-2"><a href="/news/article-76835.htm" title="动物医院的名字有哪些好听（动物医院名字大气）">动物医院的名字有哪些好听（动物医院名字大气）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-free-subscribe-node.htm" title="3月20日最新免费节点 | 22.2M/S|2025年Shadowrocket/V2ray/Clash/SSR订阅链接地址">3月20日最新免费节点 | 22.2M/S|2025年Shadowrocket/V2ray/Clash/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81647.htm" title="猫咪驱虫做到几岁（猫咪驱虫几岁开始）">猫咪驱虫做到几岁（猫咪驱虫几岁开始）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
