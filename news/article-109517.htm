@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://clashagent.github.io/news/article-109517.htm" />
+    <meta charset="utf-8">
+    <title>flink调优之RocksDB设置</title>
+        <meta name="description" content="一、开启监控 RocksDB是基于LSM Tree实现的，写数据都是先缓存到内存中，所以RocksDB的写请求效率比较高。RocksDB使用内存结合磁盘的方式来存储数据，每次获取数据时，先从内存中bl" />
+        <link rel="icon" href="/assets/website/img/clashagent/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ClashAgent免费节点分享中文官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://clashagent.github.io/news/article-109517.htm" />
+    <meta property="og:site_name" content="ClashAgent免费节点分享中文官网" />
+    <meta property="og:title" content="flink调优之RocksDB设置" />
+    <meta property="og:image" content="https://clashagent.github.io/uploads/20250106/22b8aa80b8beac9642f3a3afdb383cd4.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:22:31" />
+    <meta property="og:updated_time" content="2025-05-02T09:22:31" />
+        <meta property="og:description" content="一、开启监控 RocksDB是基于LSM Tree实现的，写数据都是先缓存到内存中，所以RocksDB的写请求效率比较高。RocksDB使用内存结合磁盘的方式来存储数据，每次获取数据时，先从内存中bl" />
+        
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="flink调优之RocksDB设置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="/assets/website/css/clashagent/css2.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/all.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/animate.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/clashagent/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD3WVPKQBJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LD3WVPKQBJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="container-xxl bg-white p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="container-xxl position-relative p-0">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="/" class="navbar-brand p-0 xcblog-blog-logo">
+                                        <span class="text-primary m-0">Clash Agent</span>
+                                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                                                <a href="/" class="nav-item nav-link">首页</a>
+                                                <a href="/free-nodes/" class="nav-item nav-link">免费节点</a>
+                                                <a href="/paid-subscribe/" class="nav-item nav-link">推荐机场</a>
+                                                <a href="/client.htm" class="nav-item nav-link">客户端</a>
+                                                <a href="/news/" class="nav-item nav-link">新闻资讯</a>
+                                            </div>
+                </div>
+            </nav>
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">flink调优之RocksDB设置</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">正文</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p><span style="font-size: 18pt"><strong><em>一、开启监控</em></strong></span></p> <p>RocksDB是基于LSM Tree实现的，写数据都是先缓存到内存中，所以RocksDB的写请求效率比较高。RocksDB使用内存结合磁盘的方式来存储数据，每次获取数据时，先从内存中blockcache中查找，如果内存中没有再去磁盘中查询。使用</p> <p>RocksDB时，状态大小仅受可用磁盘空间量的限制，性能瓶颈主要在于RocksDB对磁盘的读请求，每次读写操作都必须对数据进行<strong>反序列化或者序列化</strong>。当处理性能不够时。仅需要横向扩展并行度即可提高整个Job的吞吐量。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a54d7fa9d56fabea338b63e100c6dfa2.jpg" alt="flink调优之RocksDB设置"></p> <p>flink1.13中引入了State访问的性能监控，即latency tracking state、此功能不局限于State Backend的类型，自定义实现的State Backend也可以复用此功能。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9c33252177a7c30c9e855bfece0847ef.jpg" alt="flink调优之RocksDB设置"></p> <p>state访问的性能监控会产生一定的性能影响，所以默认每100次做一次抽样sample，对不同的state Backend性能损失影响不同。</p> <p>对于RocksDB State Backend，性能损失大概在1%左右</p> <p>对于heap State Backend，性能损失最多可达10%（内存本身速度比较快，一点损失影响就很大）</p> <p>关于性能监控的一些参数，正常开启第一个参数即可,</p> <p><strong>state.backend.latency-track.keyed-state-enabled:true&nbsp; &nbsp;//启用访问状态的性能监控</strong></p> <p>state.backend.latency-track.sample-interval:100&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //采样间隔</p> <p>state.backend.latency-track.histroy-size:128&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //保留的采样数据个数，越大越精确</p> <p>state.backend.latency-track.state-name-as-variable:true&nbsp; //将状态名作为变量</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/63d49a5429988c53ae32f4540a31cf44.jpg" alt="flink调优之RocksDB设置"></p> <p>&nbsp;0代表是任务编号，filter.visit-state是定义的状态的变量名</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c9d47c0c6b9aa527ca376101553d2ff6.jpg" alt="flink调优之RocksDB设置"></p> <p>有很多这种统计值可以查看，中位值，75分位值等。</p> <p><span style="font-size: 18pt"><strong><em>二、RocksDB状态优化</em></strong></span></p> <p>①开启增量检查点：</p> <p>RocksDB是目前唯一可用于支持有状态流处理应用程序增量检查点的状态后端，可以修改参数开启增量检查点：</p> <p>state.backend.incremental:true&nbsp; //默认false，可以改为true</p> <p>或代码中指定 new EmbededRocksDBStateBackend(true)</p> <p>②开启本地恢复：当flink任务失败时，可以基于本地的状态信息进行恢复任务。可能不需要从hdfs拉取数据。本地恢复目前仅涵盖键值类型的状态后端(RocksDB)。MemoryStateBackend不支持本地恢复并忽略此选项</p> <p>state.backend.local-recovery:true</p> <p>③如果你有多块磁盘，可以考虑指定本地多目录</p> <p>state.backend.rocksdb.localdir:</p> <p>/data1/flink/rocksdb,/data2/flink/rocksdb,/data3/flink/rocksdb</p> <p>不要配置单块磁盘的多个目录，务必将目录配置到多块不同的磁盘上，让多块磁盘来分担io压力</p> <p><span style="font-size: 18pt"><em><strong>三、增量检查点优化效果案例</strong></em></span></p> <p>提交一个任务，具体参数如下</p> <p>bin/flink run \</p> <p>-t yarn-per-job \</p> <p>-d \</p> <p>-p 5 \</p> <p>-Dyarn.application.queue=test \</p> <p>-Djobmanager.memory.process.size=2048mb \</p> <p>-Dtaskmanager.memory.process.size=4096mb \</p> <p>-Dtaskmanager.numberOfTaskSlots=2 \</p> <p>-Dstate.backend.latency-track.keyed-state-enabled=true \&nbsp; &nbsp; &nbsp; //开启状态监控</p> <p>-c com.xxx.xxx.Demo \</p> <p>在flink ui查看状态的监控<img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f0c5efa9b374dd2d816b64e57b2f4e79.jpg" alt="flink调优之RocksDB设置"></p> <p><em style="font-size: 18pt"><strong><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8600c8c6055fa0ef579c3833b953f3f1.jpg" alt="flink调优之RocksDB设置"></strong></em></p> <p>&nbsp;然后重新提交任务，在提交时增加参数：</p> <p>-Dstate.backend.incremental=true&nbsp; \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //开启增量检查点</p> <p>-Dstate.backend.local-recovery=true \&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //开启本地恢复</p> <p>代码中增加 env.setStateBackend(new EmbeddedRocksDBStateBackend())&nbsp; &nbsp;//状态后端使用RocksDB</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/15763f7f9e26e731741d3ff4da783722.jpg" alt="flink调优之RocksDB设置"></p> <p>查看两张图的checkpointed data size,可以发现，第一次任务(第一张图)checkpoint时是全量备份，所以状态是越来越大的，从1m+增加到了3m+, 而第二次任务它每次checkpoint的状态大小是有大有小的，范围在200kb-1.2m之间</p> <p>再查看End to End Duration，第一次任务的状态后端是内存存储，而时间却略大于第二次任务，说明增量的RocksDB的效果有可能好于全量的memory</p> <p><span style="font-size: 18pt"><em><strong>四、调整RockSDB的预定义选项。</strong></em></span></p> <p>预定义选项就是一个选项集合，如果调整预定义选项达不到预期，再去调整block、writebuffer等参数。</p> <p>当前支持的预定义选项有支持的选项有：</p> <p>DEFAULT</p> <p>SPINING_DISK_OPTIMIZED</p> <p>SPINNING_DISK_OPTIMIZED_HIGH_MEM</p> <p>FLASH_SSD_OPTIMIZED&nbsp; (有条件使用ssd的可以使用这个选项)</p> <p>我们一般使用第三个SPINNING_DISK_OPTIMIZED_HIGH_MEM，设置为机械硬盘+内存模式</p> <p>该模式下flink会帮我们设置一些它认为比较ok的参数(选项集合)，具体如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c71434fe64bd1e51191c7eb4c016aa24.jpg" alt="flink调优之RocksDB设置"></p> <p>可以在提交任务时指定</p> <p>state.backend.rocksdb.predefined-options:SPINNING_DISK_OPTIMIZED_HIGH+MEN</p> <p>也可以在代码中指定：</p> <p>EmbededRocksDBStateBackend embededRocksDBStateBackend = new&nbsp;EmbededRocksDBStateBackend();</p> <p>EmbededRocksDBStateBackend,setPredefinedOptions(PredefinedOptions.SPINNING_DISK_OPTIMIZED_HIGH_MEM);</p> <p>env.setStateBackend(embeddedRocksDBStateBackend);</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109516.htm">Spring mvc参数校验</a></p>
+                                        <p>下一个：<a href="/news/article-110369.htm">中国兽药十大名牌厂家排名百度百科图片（国内排名前十的兽药厂家）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-clash-v2ray-ss-ssr.htm" title="4月2日最新免费节点 | 21.2M/S|2025年Shadowrocket/V2ray/Clash/SSR订阅链接地址">4月2日最新免费节点 | 21.2M/S|2025年Shadowrocket/V2ray/Clash/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88812.htm" title="宠物领养市场分析 宠物领养市场分析报告">宠物领养市场分析 宠物领养市场分析报告</a></li>
+                        <li class="py-2"><a href="/news/article-96249.htm" title="养布偶挣钱吗（养布偶一年能赚多少钱）">养布偶挣钱吗（养布偶一年能赚多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-94747.htm" title="SpringBoot常用拦截器（HandlerInterceptor，ClientHttpRequestInterceptor，RequestInterceptor）">SpringBoot常用拦截器（HandlerInterceptor，ClientHttpRequestInterceptor，RequestInterceptor）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-free-ssr-subscribe.htm" title="4月5日最新免费节点 | 18.4M/S|2025年Clash/V2ray/Shadowrocket/SSR订阅链接地址">4月5日最新免费节点 | 18.4M/S|2025年Clash/V2ray/Shadowrocket/SSR订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-102903.htm" title="宠物猫批发市场.有多少只猫卖（宠物猫批发市场在哪里?）">宠物猫批发市场.有多少只猫卖（宠物猫批发市场在哪里?）</a></li>
+                        <li class="py-2"><a href="/news/article-110373.htm" title="今年公务员国考人数（今年国考人数多少）">今年公务员国考人数（今年国考人数多少）</a></li>
+                        <li class="py-2"><a href="/news/article-93246.htm" title="合肥哪里领养宠物狗（合肥哪里领养宠物狗比较好）">合肥哪里领养宠物狗（合肥哪里领养宠物狗比较好）</a></li>
+                        <li class="py-2"><a href="/news/article-103693.htm" title="流浪宠物领养网站大全下载（流浪动物领养网站）">流浪宠物领养网站大全下载（流浪动物领养网站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-free-ssr-node.htm" title="4月8日最新免费节点 | 19.3M/S|2025年V2ray/Shadowrocket/SSR/Clash订阅链接地址">4月8日最新免费节点 | 19.3M/S|2025年V2ray/Shadowrocket/SSR/Clash订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="text-white-50 f-15 mb-0">
+                            <a href="/">ClashAgent免费节点分享中文官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="/">Home</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Help</a>
+                            <a href="#">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="/assets/website/js/frontend/clashagent/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/main.js"></script>
+    <script src="/assets/website/js/frontend/clashagent/rocket-loader.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>

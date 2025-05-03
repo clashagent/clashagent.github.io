@@ -1,4 +1,4 @@
-# 4月28日最新免费节点 | 18.3M/S|2025年Shadowrocket/V2ray/SSR/Clash订阅链接地址  更新时间 2025-04-28 11:27:56
+# 5月3日最新免费节点 | 20.9M/S|2025年V2ray/Shadowrocket/SSR/Clash订阅链接地址  更新时间 2025-05-03 10:34:53
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashagent.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://clashagent.github.io/uploads/2025/04/0-20250428.yaml
-- https://clashagent.github.io/uploads/2025/04/1-20250428.yaml
-- https://clashagent.github.io/uploads/2025/04/2-20250428.yaml
-- https://clashagent.github.io/uploads/2025/04/3-20250428.yaml
-- https://clashagent.github.io/uploads/2025/04/4-20250428.yaml
+- https://clashagent.github.io/uploads/2025/05/0-20250503.yaml
+- https://clashagent.github.io/uploads/2025/05/1-20250503.yaml
+- https://clashagent.github.io/uploads/2025/05/2-20250503.yaml
+- https://clashagent.github.io/uploads/2025/05/3-20250503.yaml
+- https://clashagent.github.io/uploads/2025/05/4-20250503.yaml
 
 ### V2ray订阅链接
 
-- https://clashagent.github.io/uploads/2025/04/0-20250428.txt
-- https://clashagent.github.io/uploads/2025/04/1-20250428.txt
-- https://clashagent.github.io/uploads/2025/04/2-20250428.txt
-- https://clashagent.github.io/uploads/2025/04/3-20250428.txt
-- https://clashagent.github.io/uploads/2025/04/4-20250428.txt
+- https://clashagent.github.io/uploads/2025/05/0-20250503.txt
+- https://clashagent.github.io/uploads/2025/05/1-20250503.txt
+- https://clashagent.github.io/uploads/2025/05/2-20250503.txt
+- https://clashagent.github.io/uploads/2025/05/3-20250503.txt
+- https://clashagent.github.io/uploads/2025/05/4-20250503.txt
 
 ### Sing-box订阅链接
 
-- https://clashagent.github.io/uploads/2025/04/20250428.json
+- https://clashagent.github.io/uploads/2025/05/20250503.json
 
 ## 更多clash节点订阅 ：
 
