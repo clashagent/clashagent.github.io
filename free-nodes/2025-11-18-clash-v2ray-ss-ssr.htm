@@ -350,19 +350,9 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何导入 Clash 订阅链接？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
     <div class="panel-body">
-        打开 Clash 客户端，进入 Profiles（配置文件）页面，粘贴提供的订阅链接并点击下载。Clash 会自动更新节点列表，用户可在 Profiles 中选择对应配置启用，从而快速切换不同代理线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Quantumult X 的分流规则如何设置？</h5></div>
-    <div class="panel-body">
-        Quantumult X 通过规则分组来控制流量走向。用户可自定义策略组，将特定网站流量指向不同节点。编辑规则文件时，可利用 GEOIP、DOMAIN-SUFFIX 等指令精确管理网络行为。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
-    <div class="panel-body">
-        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。<hr />    </div>
+        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 策略组如何根据节点延迟自动选择？</h5></div>
@@ -370,19 +360,9 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
         策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则可保证国内流量直连，海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 节点延迟排序功能如何提升访问体验？</h5></div>
+    <div class="panel-heading"><h5>Trojan 伪装域名如何选择以提升隐蔽性？</h5></div>
     <div class="panel-body">
-        Shadowrocket 会测速节点延迟和丢包率，并优先使用低延迟节点。结合策略组和分流规则，可保证网页、视频和游戏流量通过最优节点，提高访问速度和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式在高并发环境中表现如何？</h5></div>
-    <div class="panel-body">
-        XTLS 模式减少握手和加密开销，提高吞吐量和 CPU 利用率。在高并发环境下，能够保持连接稳定，适合游戏、视频和高频请求的网络场景，提高整体性能。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化高频短连接？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手次数和加密开销。适合游戏和即时通讯等高频短连接场景，提高吞吐量和连接稳定性，保证流量快速传输。<hr />    </div>
+        伪装域名应选择真实可访问网站并配备有效证书，这样 Trojan 流量可模拟正常 HTTPS 请求，降低被封锁和检测的风险，提高节点长期可用性和访问稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 如何在 Android 上导入配置？</h5></div>
@@ -390,14 +370,34 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
         打开 Nekobox，点击“导入配置”按钮，选择订阅链接或本地 JSON 文件。程序会解析后自动生成节点列表，用户可一键连接或测速筛选最优节点。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的自定义 outbound 功能有什么用？</h5></div>
+    <div class="panel-heading"><h5>VMess AEAD 加密如何确保数据安全？</h5></div>
     <div class="panel-body">
-        Sing-box 允许用户自定义多个 outbound 出口，并通过路由规则选择性输出。例如可让流媒体走特定节点，而其他网站使用备用节点，从而实现精准分流。<hr />    </div>
+        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下，保证节点可用，提升数据安全和连接稳定性，降低被检测风险，确保长期安全访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 伪装域名如何选择以提升隐蔽性？</h5></div>
+    <div class="panel-heading"><h5>如何导入 Clash 订阅链接？</h5></div>
     <div class="panel-body">
-        伪装域名应选择真实可访问网站并配备有效证书，这样 Trojan 流量可模拟正常 HTTPS 请求，降低被封锁和检测的风险，提高节点长期可用性和访问稳定性。    </div>
+        打开 Clash 客户端，进入 Profiles（配置文件）页面，粘贴提供的订阅链接并点击下载。Clash 会自动更新节点列表，用户可在 Profiles 中选择对应配置启用，从而快速切换不同代理线路。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式在高并发环境中表现如何？</h5></div>
+    <div class="panel-body">
+        XTLS 模式减少握手和加密开销，提高吞吐量和 CPU 利用率。在高并发环境下，能够保持连接稳定，适合游戏、视频和高频请求的网络场景，提高整体性能。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 节点延迟排序功能如何提升访问体验？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 会测速节点延迟和丢包率，并优先使用低延迟节点。结合策略组和分流规则，可保证网页、视频和游戏流量通过最优节点，提高访问速度和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 多路复用如何优化高频短连接？</h5></div>
+    <div class="panel-body">
+        多路复用允许多个短连接共享同一通道，减少握手次数和加密开销。适合游戏和即时通讯等高频短连接场景，提高吞吐量和连接稳定性，保证流量快速传输。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Quantumult X 的分流规则如何设置？</h5></div>
+    <div class="panel-body">
+        Quantumult X 通过规则分组来控制流量走向。用户可自定义策略组，将特定网站流量指向不同节点。编辑规则文件时，可利用 GEOIP、DOMAIN-SUFFIX 等指令精确管理网络行为。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -426,16 +426,16 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-26-free-ssr-node.htm" title="10月26日最新免费节点 | 20.4M/S|2025年Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅链接地址">10月26日最新免费节点 | 20.4M/S|2025年Clash节点/Singbox节点/SSR节点/V2ray节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-14-node-share.htm" title="10月14日最新免费节点 | 22.1M/S|2025年V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点订阅链接地址">10月14日最新免费节点 | 22.1M/S|2025年V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Singbox节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-3-free-node-subscribe.htm" title="10月3日最新免费节点 | 18.8M/S|2025年Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点订阅链接地址">10月3日最新免费节点 | 18.8M/S|2025年Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-21-free-ssr-node.htm" title="10月21日最新免费节点 | 21.6M/S|2025年V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点订阅链接地址">10月21日最新免费节点 | 21.6M/S|2025年V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-7-free-ssr-node.htm" title="11月7日最新免费节点 | 20.1M/S|2025年Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点订阅链接地址">11月7日最新免费节点 | 20.1M/S|2025年Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-5-free-high-speed-nodes.htm" title="11月5日最新免费节点 | 21.8M/S|2025年SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点订阅链接地址">11月5日最新免费节点 | 21.8M/S|2025年SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-9-free-ssr-subscribe.htm" title="10月9日最新免费节点 | 18.1M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点订阅链接地址">10月9日最新免费节点 | 18.1M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-18-clash-v2ray-ss-ssr.htm" title="11月18日最新免费节点 | 19M/S|2025年V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点订阅链接地址">11月18日最新免费节点 | 19M/S|2025年V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-2-free-clash.htm" title="11月2日最新免费节点 | 21.8M/S|2025年SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Clash节点订阅链接地址">11月2日最新免费节点 | 21.8M/S|2025年SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-11-free-ssr-node.htm" title="10月11日最新免费节点 | 22.4M/S|2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点订阅链接地址">10月11日最新免费节点 | 22.4M/S|2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-25-clash-v2ray-ss-ssr.htm" title="10月25日最新免费节点 | 18.9M/S|2025年SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点订阅链接地址">10月25日最新免费节点 | 18.9M/S|2025年SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-17-free-clash.htm" title="10月17日最新免费节点 | 22.5M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点订阅链接地址">10月17日最新免费节点 | 22.5M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-6-clash-v2ray-ss-ssr.htm" title="10月6日最新免费节点 | 19.4M/S|2025年V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址">10月6日最新免费节点 | 19.4M/S|2025年V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-3-clash-node.htm" title="11月3日最新免费节点 | 20.4M/S|2025年V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点订阅链接地址">11月3日最新免费节点 | 20.4M/S|2025年V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-22-free-ssr-node.htm" title="11月22日最新免费节点 | 20.2M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点订阅链接地址">11月22日最新免费节点 | 20.2M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-13-free-node-subscribe.htm" title="10月13日最新免费节点 | 18.3M/S|2025年V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Singbox节点订阅链接地址">10月13日最新免费节点 | 18.3M/S|2025年V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Singbox节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-19-clash-node.htm" title="11月19日最新免费节点 | 21.6M/S|2025年SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Clash节点订阅链接地址">11月19日最新免费节点 | 21.6M/S|2025年SSR节点/V2ray节点/Shadowrocket节点/Singbox节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-15-free-node-subscribe-links.htm" title="11月15日最新免费节点 | 22.8M/S|2025年Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点订阅链接地址">11月15日最新免费节点 | 22.8M/S|2025年Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -447,7 +447,7 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
