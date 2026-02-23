@@ -303,6 +303,7 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> ra
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2026-2-14-clash-windows.htm">2月14日最新免费节点 | 18.9M/S|2025年SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点订阅链接地址</a></p>
+        <p>下一个：<a href="/free-nodes/2026-2-16-free-clash.htm">2月16日最新免费节点 | 20.5M/S|2025年Singbox节点/Clash节点/Trojan节点/SSR节点/V2ray节点/Shadowrocket节点订阅链接地址</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
@@ -311,29 +312,14 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> ra
         Clash 支持自定义规则文件，可根据域名、IP 或应用类型分流流量。结合策略组使用，可自动将视频、游戏、浏览器等流量分配到最优节点，提高访问速度和网络稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何区分全局代理和规则代理？</h5></div>
-    <div class="panel-body">
-        全局代理会将所有流量通过节点转发，而规则代理仅对指定 IP、端口或应用生效。用户可根据需求选择代理模式，实现流量优化和不同应用的最佳网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS 的 Reality 模式需要额外配置吗？</h5></div>
     <div class="panel-body">
         Reality 模式需要配置伪装域名、公钥和服务器指纹等参数。正确配置后，可有效隐藏流量特征，提高在高封锁环境下的可用性和安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的伪装域名选择有哪些原则？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 如何设置多入口实现不同访问控制？</h5></div>
     <div class="panel-body">
-        伪装域名必须是真实可访问网站，并且证书有效。这样可以让 Trojan 流量看起来像普通 HTTPS 请求，减少被封锁或 DPI 检测风险，确保节点安全和可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 支持哪些内核？</h5></div>
-    <div class="panel-body">
-        PassWall2 支持多种代理内核，如 Xray、V2Ray、Sing-box、Trojan-go、Hysteria2 等。用户可在插件管理中切换所需内核，以获得不同协议与性能的支持。部分内核需手动下载并启用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 的配置文件在哪里保存？</h5></div>
-    <div class="panel-body">
-        Nekoray 的配置文件默认保存在程序目录下的 `config.json` 中。用户可手动备份此文件以迁移配置，也可使用导入导出功能在不同设备间同步节点数据。<hr />    </div>
+        通过定义多个 inbound，对不同端口绑定不同的 tag 并在路由中匹配流量。可针对内网用户、远程用户或特定 IP 段应用不同规则，实现灵活访问控制与流量隔离。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的证书配置错误会导致什么问题？</h5></div>
@@ -341,9 +327,9 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> ra
         如果 TLS 证书无效或域名不匹配，Trojan 客户端将无法建立安全连接，导致节点无法使用。需要确保证书有效、域名正确，才能保证正常访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的伪装域名为什么重要？</h5></div>
+    <div class="panel-heading"><h5>Trojan 的伪装域名选择有哪些原则？</h5></div>
     <div class="panel-body">
-        伪装域名必须真实可访问且证书有效，以使流量看起来像普通 HTTPS 请求。正确配置可以降低被封锁和 DPI 检测风险，提高节点安全性和长期可用性。<hr />    </div>
+        伪装域名必须是真实可访问网站，并且证书有效。这样可以让 Trojan 流量看起来像普通 HTTPS 请求，减少被封锁或 DPI 检测风险，确保节点安全和可用性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何优化 Clash DNS 解析速度？</h5></div>
@@ -351,9 +337,24 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> ra
         可在配置文件中启用 fake-ip 模式或使用高质量的 DoH 服务（如 Cloudflare、AliDNS）。同时将 `fallback-filter.geoip` 设置为 true，避免国内域名被错误解析到境外，提高解析效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 如何设置多入口实现不同访问控制？</h5></div>
+    <div class="panel-heading"><h5>Trojan 的伪装域名为什么重要？</h5></div>
     <div class="panel-body">
-        通过定义多个 inbound，对不同端口绑定不同的 tag 并在路由中匹配流量。可针对内网用户、远程用户或特定 IP 段应用不同规则，实现灵活访问控制与流量隔离。    </div>
+        伪装域名必须真实可访问且证书有效，以使流量看起来像普通 HTTPS 请求。正确配置可以降低被封锁和 DPI 检测风险，提高节点安全性和长期可用性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 的配置文件在哪里保存？</h5></div>
+    <div class="panel-body">
+        Nekoray 的配置文件默认保存在程序目录下的 `config.json` 中。用户可手动备份此文件以迁移配置，也可使用导入导出功能在不同设备间同步节点数据。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 支持哪些内核？</h5></div>
+    <div class="panel-body">
+        PassWall2 支持多种代理内核，如 Xray、V2Ray、Sing-box、Trojan-go、Hysteria2 等。用户可在插件管理中切换所需内核，以获得不同协议与性能的支持。部分内核需手动下载并启用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 如何区分全局代理和规则代理？</h5></div>
+    <div class="panel-body">
+        全局代理会将所有流量通过节点转发，而规则代理仅对指定 IP、端口或应用生效。用户可根据需求选择代理模式，实现流量优化和不同应用的最佳网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -382,16 +383,16 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> ra
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-2-12-clash-windows.htm" title="2月12日最新免费节点 | 18M/S|2025年V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点订阅链接地址">2月12日最新免费节点 | 18M/S|2025年V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-4-free-clash-subscribe.htm" title="2月4日最新免费节点 | 22.7M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点订阅链接地址">2月4日最新免费节点 | 22.7M/S|2025年SSR节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-9-free-clash.htm" title="2月9日最新免费节点 | 22.7M/S|2025年V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/Clash节点订阅链接地址">2月9日最新免费节点 | 22.7M/S|2025年V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-25-free-clash-subscribe.htm" title="1月25日最新免费节点 | 21.9M/S|2025年Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点订阅链接地址">1月25日最新免费节点 | 21.9M/S|2025年Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-18-free-clash.htm" title="1月18日最新免费节点 | 22.5M/S|2025年SSR节点/V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址">1月18日最新免费节点 | 22.5M/S|2025年SSR节点/V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-31-free-high-speed-nodes.htm" title="1月31日最新免费节点 | 20.5M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点订阅链接地址">1月31日最新免费节点 | 20.5M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-8-free-ssr-subscribe.htm" title="2月8日最新免费节点 | 21.9M/S|2025年V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点订阅链接地址">2月8日最新免费节点 | 21.9M/S|2025年V2ray节点/Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-11-free-high-speed-nodes.htm" title="2月11日最新免费节点 | 19.9M/S|2025年V2ray节点/Singbox节点/Trojan节点/SSR节点/Clash节点/Shadowrocket节点订阅链接地址">2月11日最新免费节点 | 19.9M/S|2025年V2ray节点/Singbox节点/Trojan节点/SSR节点/Clash节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-29-free-subscribe-node.htm" title="1月29日最新免费节点 | 22.8M/S|2025年Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点/V2ray节点订阅链接地址">1月29日最新免费节点 | 22.8M/S|2025年Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-15-clash-node-github.htm" title="1月15日最新免费节点 | 20.4M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点订阅链接地址">1月15日最新免费节点 | 20.4M/S|2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-23-free-high-speed-nodes.htm" title="2月23日最新免费节点 | 21.8M/S|2025年Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点订阅链接地址">2月23日最新免费节点 | 21.8M/S|2025年Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-14-clash-windows.htm" title="2月14日最新免费节点 | 18.9M/S|2025年SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点订阅链接地址">2月14日最新免费节点 | 18.9M/S|2025年SSR节点/Trojan节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-14-free-high-speed-nodes.htm" title="1月14日最新免费节点 | 20.8M/S|2025年SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址">1月14日最新免费节点 | 20.8M/S|2025年SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-7-clash-windows.htm" title="2月7日最新免费节点 | 22.8M/S|2025年Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点/V2ray节点订阅链接地址">2月7日最新免费节点 | 22.8M/S|2025年Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-20-free-ssr-node.htm" title="1月20日最新免费节点 | 19.9M/S|2025年Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点订阅链接地址">1月20日最新免费节点 | 19.9M/S|2025年Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-17-free-ssr-subscribe.htm" title="1月17日最新免费节点 | 19.2M/S|2025年Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/SSR节点/Clash节点订阅链接地址">1月17日最新免费节点 | 19.2M/S|2025年Shadowrocket节点/Trojan节点/Singbox节点/V2ray节点/SSR节点/Clash节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-17-node-share.htm" title="2月17日最新免费节点 | 21.9M/S|2025年Clash节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/V2ray节点订阅链接地址">2月17日最新免费节点 | 21.9M/S|2025年Clash节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/V2ray节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-2-5-free-subscribe-node.htm" title="2月5日最新免费节点 | 18.7M/S|2025年Clash节点/SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Singbox节点订阅链接地址">2月5日最新免费节点 | 18.7M/S|2025年Clash节点/SSR节点/Shadowrocket节点/Trojan节点/V2ray节点/Singbox节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-26-free-clash.htm" title="1月26日最新免费节点 | 22.3M/S|2025年Clash节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点/Singbox节点订阅链接地址">1月26日最新免费节点 | 22.3M/S|2025年Clash节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点/Singbox节点订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -403,7 +404,7 @@ systemctl </span><span><span class="hljs-built_in">enable</span></span><span> ra
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
+                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
