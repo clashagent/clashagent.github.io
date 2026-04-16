@@ -266,29 +266,9 @@ A：推荐加入Clash中文交流群、访问GitHub Issue区，或在Telegram中
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 全局代理与规则代理的适用场景是什么？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 多路复用对高频连接的优势？</h5></div>
     <div class="panel-body">
-        全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理适合只对特定应用或网站进行代理。用户可根据需求选择，提高带宽利用和网络效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何在 Windows 上安装 Clash for Windows？</h5></div>
-    <div class="panel-body">
-        在 Windows 上安装 Clash for Windows 十分简单。只需前往官方 GitHub 页面下载最新版安装包，运行安装程序后导入订阅链接或配置文件即可。安装完成后，用户可以通过图形化界面方便地切换节点、编辑规则和控制代理模式。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 支持按 IP 段分流吗？</h5></div>
-    <div class="panel-body">
-        支持。Sing-box 可根据 IP 段将国内流量直连，国外流量走代理，结合策略组实现智能分流。这样可保证访问速度和稳定性，同时优化节点使用效率，提高网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何兼容 Clash 的配置文件？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持 Clash 规则格式的解析，用户可直接导入 Clash 的 YAML 配置文件进行使用。虽然部分高级参数需要调整，但大多数分流和策略配置都能自动识别，便于迁移。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度？</h5></div>
-    <div class="panel-body">
-        PAC 模式根据规则判断流量是否走代理，无需手动切换节点。适合访问国内外混合网站，提高访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
+        多路复用可让多个短连接共享同一通道，减少握手和加密开销，提高吞吐量。适合高频短连接场景，如即时通讯和游戏，保证流量快速、稳定传输。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 支持哪些传输层协议？</h5></div>
@@ -296,9 +276,14 @@ A：推荐加入Clash中文交流群、访问GitHub Issue区，或在Telegram中
         V2Ray 支持多种传输层，包括 TCP、mKCP、WebSocket、gRPC、QUIC 等。每种传输方式都有不同的性能特点，例如 TCP 稳定、WS 兼容 CDN、QUIC 延迟低。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分类管理有什么作用？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何兼容 Clash 的配置文件？</h5></div>
     <div class="panel-body">
-        节点分类可按地区、延迟或用途分组，结合策略组实现自动分流。方便管理大量节点，快速选择最优节点，提高访问速度和连接稳定性，优化网络管理效率。<hr />    </div>
+        Sing-box 支持 Clash 规则格式的解析，用户可直接导入 Clash 的 YAML 配置文件进行使用。虽然部分高级参数需要调整，但大多数分流和策略配置都能自动识别，便于迁移。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何在 Windows 上安装 Clash for Windows？</h5></div>
+    <div class="panel-body">
+        在 Windows 上安装 Clash for Windows 十分简单。只需前往官方 GitHub 页面下载最新版安装包，运行安装程序后导入订阅链接或配置文件即可。安装完成后，用户可以通过图形化界面方便地切换节点、编辑规则和控制代理模式。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 的多用户限速功能如何使用？</h5></div>
@@ -306,14 +291,29 @@ A：推荐加入Clash中文交流群、访问GitHub Issue区，或在Telegram中
         Hiddify Next 支持在管理面板中为每个用户设置带宽上限。管理员可以按需分配速率或流量配额，防止单一用户占用过多资源，从而保持整体网络稳定。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用对高频连接的优势？</h5></div>
+    <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度？</h5></div>
     <div class="panel-body">
-        多路复用可让多个短连接共享同一通道，减少握手和加密开销，提高吞吐量。适合高频短连接场景，如即时通讯和游戏，保证流量快速、稳定传输。<hr />    </div>
+        PAC 模式根据规则判断流量是否走代理，无需手动切换节点。适合访问国内外混合网站，提高访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 可以与其他代理客户端共存吗？</h5></div>
     <div class="panel-body">
-        可以。Nekobox 与 Shadowsocks、Clash 等客户端互不干扰，可以同时运行。用户可通过策略组或分流规则选择使用节点，实现灵活的网络管理。    </div>
+        可以。Nekobox 与 Shadowsocks、Clash 等客户端互不干扰，可以同时运行。用户可通过策略组或分流规则选择使用节点，实现灵活的网络管理。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分类管理有什么作用？</h5></div>
+    <div class="panel-body">
+        节点分类可按地区、延迟或用途分组，结合策略组实现自动分流。方便管理大量节点，快速选择最优节点，提高访问速度和连接稳定性，优化网络管理效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 支持按 IP 段分流吗？</h5></div>
+    <div class="panel-body">
+        支持。Sing-box 可根据 IP 段将国内流量直连，国外流量走代理，结合策略组实现智能分流。这样可保证访问速度和稳定性，同时优化节点使用效率，提高网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 全局代理与规则代理的适用场景是什么？</h5></div>
+    <div class="panel-body">
+        全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理适合只对特定应用或网站进行代理。用户可根据需求选择，提高带宽利用和网络效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -342,16 +342,16 @@ A：推荐加入Clash中文交流群、访问GitHub Issue区，或在Telegram中
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-22-free-node-subscribe.htm" title="3月22日最新免费节点 | 22.3M/S|2025年Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点订阅链接地址">3月22日最新免费节点 | 22.3M/S|2025年Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-29-free-high-speed-nodes.htm" title="3月29日最新免费节点 | 21.8M/S|2025年SSR节点/Clash节点/V2ray节点/Trojan节点/Singbox节点/Shadowrocket节点订阅链接地址">3月29日最新免费节点 | 21.8M/S|2025年SSR节点/Clash节点/V2ray节点/Trojan节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-4-clash-node-github.htm" title="3月4日最新免费节点 | 20.9M/S|2025年V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点订阅链接地址">3月4日最新免费节点 | 20.9M/S|2025年V2ray节点/Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-20-free-ssr-subscribe.htm" title="3月20日最新免费节点 | 23M/S|2025年V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点订阅链接地址">3月20日最新免费节点 | 23M/S|2025年V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-26-free-ssr-node.htm" title="3月26日最新免费节点 | 18.7M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点订阅链接地址">3月26日最新免费节点 | 18.7M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-30-free-ssr-subscribe.htm" title="3月30日最新免费节点 | 21.5M/S|2025年V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址">3月30日最新免费节点 | 21.5M/S|2025年V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-10-clash-v2ray-ss-ssr.htm" title="3月10日最新免费节点 | 19.6M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Singbox节点/Clash节点订阅链接地址">3月10日最新免费节点 | 19.6M/S|2025年Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Singbox节点/Clash节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-18-free-high-speed-nodes.htm" title="3月18日最新免费节点 | 19.3M/S|2025年Singbox节点/Trojan节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点订阅链接地址">3月18日最新免费节点 | 19.3M/S|2025年Singbox节点/Trojan节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-28-free-clash.htm" title="3月28日最新免费节点 | 22.5M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点订阅链接地址">3月28日最新免费节点 | 22.5M/S|2025年Clash节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-9-clash-node.htm" title="3月9日最新免费节点 | 21.6M/S|2025年V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点/Trojan节点订阅链接地址">3月9日最新免费节点 | 21.6M/S|2025年V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点/Trojan节点订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-7-free-clash-subscribe.htm" title="3月7日最新免费节点 | 18.7M/S|2025年V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点订阅链接地址">3月7日最新免费节点 | 18.7M/S|2025年V2ray节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/Clash节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-2-free-clash.htm" title="4月2日最新免费节点 | 19.3M/S|2025年Trojan节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点订阅链接地址">4月2日最新免费节点 | 19.3M/S|2025年Trojan节点/V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-11-node-share-links.htm" title="3月11日最新免费节点 | 22.3M/S|2025年Trojan节点/Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点订阅链接地址">3月11日最新免费节点 | 22.3M/S|2025年Trojan节点/Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-19-node-share-links.htm" title="3月19日最新免费节点 | 22.5M/S|2025年Shadowrocket节点/SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点订阅链接地址">3月19日最新免费节点 | 22.5M/S|2025年Shadowrocket节点/SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-25-clash-node.htm" title="3月25日最新免费节点 | 19.1M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/SSR节点订阅链接地址">3月25日最新免费节点 | 19.1M/S|2025年Shadowrocket节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/SSR节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-23-free-high-speed-nodes.htm" title="3月23日最新免费节点 | 18.8M/S|2025年Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点订阅链接地址">3月23日最新免费节点 | 18.8M/S|2025年Trojan节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-27-free-subscribe-node.htm" title="3月27日最新免费节点 | 20.7M/S|2025年Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/V2ray节点/SSR节点订阅链接地址">3月27日最新免费节点 | 20.7M/S|2025年Shadowrocket节点/Trojan节点/Singbox节点/Clash节点/V2ray节点/SSR节点订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-22-free-node-subscribe.htm" title="3月22日最新免费节点 | 22.3M/S|2025年Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点订阅链接地址">3月22日最新免费节点 | 22.3M/S|2025年Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/SSR节点订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -363,7 +363,7 @@ A：推荐加入Clash中文交流群、访问GitHub Issue区，或在Telegram中
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
