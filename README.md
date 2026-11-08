@@ -1,4 +1,4 @@
-# 11月1日最新免费节点 | 19M/S|2025年Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点订阅链接地址  更新时间 2026-11-01 09:55:16
+# 11月8日最新免费节点 | 18M/S|2026年V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点订阅链接地址  更新时间 2026-11-08 10:37:06
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://clashagent.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://clashagent.github.io/uploads/2026/11/0-20261101.yaml
-- https://clashagent.github.io/uploads/2026/11/1-20261101.yaml
-- https://clashagent.github.io/uploads/2026/11/2-20261101.yaml
-- https://clashagent.github.io/uploads/2026/11/3-20261101.yaml
-- https://clashagent.github.io/uploads/2026/11/4-20261101.yaml
+- https://clashagent.github.io/uploads/2026/11/0-20261108.yaml
+- https://clashagent.github.io/uploads/2026/11/1-20261108.yaml
+- https://clashagent.github.io/uploads/2026/11/2-20261108.yaml
+- https://clashagent.github.io/uploads/2026/11/3-20261108.yaml
+- https://clashagent.github.io/uploads/2026/11/4-20261108.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://clashagent.github.io/uploads/2026/11/0-20261101.txt
-- https://clashagent.github.io/uploads/2026/11/1-20261101.txt
-- https://clashagent.github.io/uploads/2026/11/2-20261101.txt
-- https://clashagent.github.io/uploads/2026/11/3-20261101.txt
-- https://clashagent.github.io/uploads/2026/11/4-20261101.txt
+- https://clashagent.github.io/uploads/2026/11/0-20261108.txt
+- https://clashagent.github.io/uploads/2026/11/1-20261108.txt
+- https://clashagent.github.io/uploads/2026/11/2-20261108.txt
+- https://clashagent.github.io/uploads/2026/11/3-20261108.txt
+- https://clashagent.github.io/uploads/2026/11/4-20261108.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://clashagent.github.io/uploads/2026/11/20261101.json
+- https://clashagent.github.io/uploads/2026/11/20261108.json
 
 ## 更多Clash节点订阅 ：
 
