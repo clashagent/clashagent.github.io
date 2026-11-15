@@ -137,39 +137,9 @@
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 TCP/UDP 分流适合哪些应用？</h5></div>
-    <div class="panel-body">
-        TCP 分流适合网页、下载和视频播放，UDP 分流适合游戏、语音和实时视频。Netch 可同时代理 TCP 和 UDP 流量，实现精准分流，保证不同应用的最佳性能。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何自动切换最佳节点？</h5></div>
-    <div class="panel-body">
-        通过延迟测速和策略组设置，PassWall2 可自动选择延迟最低的节点处理流量。用户无需手动切换节点，保证网页、视频和游戏流量的速度和稳定性，提高整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayA 在 Linux 系统中如何开机自启？</h5></div>
-    <div class="panel-body">
-        可通过 systemd 创建启动项或在启动脚本中添加 V2RayA 启动命令。编辑 /etc/systemd/system/v2raya.service 文件并设置 `Restart=always`，执行 `systemctl enable v2raya` 使其随系统自动启动。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何实现精确域名分流？</h5></div>
     <div class="panel-body">
         Sing-box 可以按域名设置分流规则，将不同流量发送到指定节点。结合策略组使用，可实现网页、视频和游戏流量精准分配，提高访问速度和网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 的延迟测试准确吗？</h5></div>
-    <div class="panel-body">
-        Matsuri 的延迟测试使用 ICMP 与 TCP 双重检测方式，可较准确反映节点实际响应时间。不过受网络波动影响，建议多次测试并结合速度测试结果综合判断。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的多策略组设置能提高访问效率吗？</h5></div>
-    <div class="panel-body">
-        多策略组可以将节点按用途、延迟或地域分类，结合规则文件自动分流不同流量。这样可以确保游戏、视频或网页流量走最优节点，提高整体访问效率和稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 支持哪几种代理协议？</h5></div>
-    <div class="panel-body">
-        Shadowrocket 支持多种协议，包括 Shadowsocks、Vmess、VLess、Trojan、HTTP、SOCKS5 等。它还可解析部分 QuantumultX 与 Clash 的订阅格式，适合 iOS 用户进行全协议代理管理与切换。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Vmess 节点使用 WebSocket + TLS 时应注意哪些参数？</h5></div>
@@ -177,14 +147,44 @@
         需确保路径（path）与主机名（host）匹配服务器配置，TLS 证书有效，端口与防火墙设置开放。建议开启 mux 与 keepalive 优化连接稳定性，并定期测试延迟避免 CDN 缓存导致连接异常。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 是否还值得使用？</h5></div>
+    <div class="panel-heading"><h5>WinXray 的多策略组设置能提高访问效率吗？</h5></div>
     <div class="panel-body">
-        虽然 SSR 的开发早已停止，但由于它配置简单且部分节点仍然兼容，仍有一定使用场景。不过建议用户逐步迁移到更安全的新协议如 VLESS 或 Trojan，以获得更佳性能与隐蔽性。<hr />    </div>
+        多策略组可以将节点按用途、延迟或地域分类，结合规则文件自动分流不同流量。这样可以确保游戏、视频或网页流量走最优节点，提高整体访问效率和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2RayA 在 Linux 系统中如何开机自启？</h5></div>
+    <div class="panel-body">
+        可通过 systemd 创建启动项或在启动脚本中添加 V2RayA 启动命令。编辑 /etc/systemd/system/v2raya.service 文件并设置 `Restart=always`，执行 `systemctl enable v2raya` 使其随系统自动启动。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 的安全性是否优于 Shadowsocks？</h5></div>
     <div class="panel-body">
-        VMess 拥有动态验证机制和更复杂的握手协议，相较于静态密钥的 Shadowsocks 安全性更高。它能有效抵御重放攻击和 DPI 检测，更适合长期使用。    </div>
+        VMess 拥有动态验证机制和更复杂的握手协议，相较于静态密钥的 Shadowsocks 安全性更高。它能有效抵御重放攻击和 DPI 检测，更适合长期使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何自动切换最佳节点？</h5></div>
+    <div class="panel-body">
+        通过延迟测速和策略组设置，PassWall2 可自动选择延迟最低的节点处理流量。用户无需手动切换节点，保证网页、视频和游戏流量的速度和稳定性，提高整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 的延迟测试准确吗？</h5></div>
+    <div class="panel-body">
+        Matsuri 的延迟测试使用 ICMP 与 TCP 双重检测方式，可较准确反映节点实际响应时间。不过受网络波动影响，建议多次测试并结合速度测试结果综合判断。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 支持哪几种代理协议？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 支持多种协议，包括 Shadowsocks、Vmess、VLess、Trojan、HTTP、SOCKS5 等。它还可解析部分 QuantumultX 与 Clash 的订阅格式，适合 iOS 用户进行全协议代理管理与切换。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的 TCP/UDP 分流适合哪些应用？</h5></div>
+    <div class="panel-body">
+        TCP 分流适合网页、下载和视频播放，UDP 分流适合游戏、语音和实时视频。Netch 可同时代理 TCP 和 UDP 流量，实现精准分流，保证不同应用的最佳性能。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 是否还值得使用？</h5></div>
+    <div class="panel-body">
+        虽然 SSR 的开发早已停止，但由于它配置简单且部分节点仍然兼容，仍有一定使用场景。不过建议用户逐步迁移到更安全的新协议如 VLESS 或 Trojan，以获得更佳性能与隐蔽性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -232,16 +232,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-9-15.htm" title="9月15日最新免费节点 | 22.4M/S|2025年Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Clash节点/Singbox节点订阅链接地址">9月15日最新免费节点 | 22.4M/S|2025年Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Clash节点/Singbox节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-10-27.htm" title="10月27日最新免费节点 | 18.1M/S|2025年Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点订阅链接地址">10月27日最新免费节点 | 18.1M/S|2025年Trojan节点/Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-9-23.htm" title="9月23日最新免费节点 | 18.2M/S|2025年V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点/Trojan节点订阅链接地址">9月23日最新免费节点 | 18.2M/S|2025年V2ray节点/Shadowrocket节点/Singbox节点/Clash节点/SSR节点/Trojan节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-clash-subscribe-2026-11-11.htm" title="11月11日最新免费节点 | 20.4M/S|2026年Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点订阅链接地址">11月11日最新免费节点 | 20.4M/S|2026年Clash节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-24-node-share.htm" title="10月24日最新免费节点 | 21.1M/S|2025年Singbox节点/Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点订阅链接地址">10月24日最新免费节点 | 21.1M/S|2025年Singbox节点/Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-11-4-free-clash.htm" title="11月4日最新免费节点 | 20.8M/S|2025年SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点/Clash节点订阅链接地址">11月4日最新免费节点 | 20.8M/S|2025年SSR节点/Singbox节点/Trojan节点/Shadowrocket节点/V2ray节点/Clash节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-10-free-ssr-node.htm" title="10月10日最新免费节点 | 18.8M/S|2025年Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/Singbox节点/SSR节点订阅链接地址">10月10日最新免费节点 | 18.8M/S|2025年Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/Singbox节点/SSR节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-30-free-clash.htm" title="9月30日最新免费节点 | 22.7M/S|2025年SSR节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点订阅链接地址">9月30日最新免费节点 | 22.7M/S|2025年SSR节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-6-free-clash.htm" title="9月6日最新免费节点 | 21.9M/S|2025年Shadowrocket节点/SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点订阅链接地址">9月6日最新免费节点 | 21.9M/S|2025年Shadowrocket节点/SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-9-17.htm" title="9月17日最新免费节点 | 19.6M/S|2025年Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点订阅链接地址">9月17日最新免费节点 | 19.6M/S|2025年Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-9-21.htm" title="9月21日最新免费节点 | 18.3M/S|2025年Clash节点/SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点订阅链接地址">9月21日最新免费节点 | 18.3M/S|2025年Clash节点/SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-20-node-share.htm" title="9月20日最新免费节点 | 22.9M/S|2025年SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点订阅链接地址">9月20日最新免费节点 | 22.9M/S|2025年SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-11-5.htm" title="11月5日最新免费节点 | 18.2M/S|2025年Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点订阅链接地址">11月5日最新免费节点 | 18.2M/S|2025年Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点/SSR节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-10-19.htm" title="10月19日最新免费节点 | 22.9M/S|2025年SSR节点/Trojan节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址">10月19日最新免费节点 | 22.9M/S|2025年SSR节点/Trojan节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-16-clash-v2ray-ss-ssr.htm" title="10月16日最新免费节点 | 21.9M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点订阅链接地址">10月16日最新免费节点 | 21.9M/S|2025年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-node-github-2026-10-15.htm" title="10月15日最新免费节点 | 22.7M/S|2025年Clash节点/Singbox节点/SSR节点/V2ray节点/Trojan节点/Shadowrocket节点订阅链接地址">10月15日最新免费节点 | 22.7M/S|2025年Clash节点/Singbox节点/SSR节点/V2ray节点/Trojan节点/Shadowrocket节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-6-free-high-speed-nodes.htm" title="11月6日最新免费节点 | 20.3M/S|2025年Clash节点/Trojan节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点订阅链接地址">11月6日最新免费节点 | 20.3M/S|2025年Clash节点/Trojan节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-12-free-clash.htm" title="11月12日最新免费节点 | 18.9M/S|2026年Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点订阅链接地址">11月12日最新免费节点 | 18.9M/S|2026年Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-10-17.htm" title="10月17日最新免费节点 | 21.1M/S|2025年Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Trojan节点/Clash节点订阅链接地址">10月17日最新免费节点 | 21.1M/S|2025年Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Trojan节点/Clash节点订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -253,13 +253,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">8</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                     </ul>
     </div>
